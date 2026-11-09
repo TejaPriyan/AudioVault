@@ -1,0 +1,3005 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUDIOVAULT — Sonic Steganography &amp; Acoustic Cryptography Platform</title>
+
+  <!-- Primary SEO Meta Tags -->
+  <meta name="description" content="AUDIOVAULT is a zero-knowledge, 100% client-side sonic steganography platform and acoustic FSK modem. Hide encrypted files and secrets inside 16-bit PCM WAV audio and transmit data over sound." />
+  <meta name="keywords" content="sonic steganography, audio steganography, acoustic cryptography, data over sound, FSK modem, Goertzel filter, 16-bit PCM, LSB steganography, AES-256-GCM, zero knowledge, audio encryption, covert audio" />
+  <meta name="author" content="AUDIOVAULT Team" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://audiovault.app/" />
+  <meta name="theme-color" content="#05060B" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Geographic (GEO) Meta Tags -->
+  <meta name="geo.region" content="US" />
+  <meta name="geo.placename" content="Global" />
+  <meta name="geo.position" content="37.7749;-122.4194" />
+  <meta name="ICBM" content="37.7749, -122.4194" />
+
+  <!-- Open Graph / Facebook / LinkedIn Social Cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AUDIOVAULT" />
+  <meta property="og:url" content="https://audiovault.app/" />
+  <meta property="og:title" content="AUDIOVAULT — Sonic Steganography &amp; Acoustic Cryptography Platform" />
+  <meta property="og:description" content="Hide secrets inside sound. Transmit data through air. 100% client-side 16-bit PCM LSB steganography, AES-256-GCM encryption &amp; FSK acoustic modem." />
+  <meta property="og:image" content="https://audiovault.app/og-banner.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter / X Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@audiovault_app" />
+  <meta name="twitter:creator" content="@audiovault_app" />
+  <meta name="twitter:url" content="https://audiovault.app/" />
+  <meta name="twitter:title" content="AUDIOVAULT — Sonic Steganography &amp; Acoustic Cryptography Platform" />
+  <meta name="twitter:description" content="Hide secrets inside sound. Transmit data through air. 100% client-side 16-bit PCM LSB steganography, AES-256-GCM encryption &amp; FSK acoustic modem." />
+  <meta name="twitter:image" content="https://audiovault.app/og-banner.png" />
+
+  <!-- SVG Favicon (Instant Data URI Fallback) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2305060B'/%3E%3Cpath d='M30 70V30l40-10v50M30 70c0 4-4 8-10 8s-10-4-10-8 4-8 10-8 10 4 10 8zm40-10c0 4-4 8-10 8s-10-4-10-8 4-8 10-8 10 4 10 8z' stroke='%2300F0FF' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <!-- Answer Engine Optimization (AEO) JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://audiovault.app/#webapp",
+        "name": "AUDIOVAULT",
+        "url": "https://audiovault.app/",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "All (Web Browser with Web Audio API)",
+        "browserRequirements": "Requires JavaScript and HTML5 Web Audio API",
+        "description": "Zero-knowledge client-side sonic steganography platform and acoustic FSK modem for concealing encrypted data in 16-bit PCM audio and transmitting data over sound.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "16-Bit PCM LSB Steganography (>94 dB SNR)",
+          "Acoustic FSK Modem with Goertzel Filter Demodulation",
+          "Audible (1.8/3.0 kHz) and Ultrasonic Stealth (14.5/16.5 kHz) Modes",
+          "Authenticated AES-256-GCM Encryption with PBKDF2 (100,000 iterations)",
+          "IEEE 802.3 CRC32 Tamper Detection",
+          "Live Vocal Microphone Studio & Oscilloscope",
+          "Zero-knowledge 100% client-side execution"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://audiovault.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is sonic steganography?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sonic steganography is the science of hiding secret data, text, or files within an audio carrier signal without creating audible distortion or suspicion."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can human ears detect secrets hidden with AUDIOVAULT?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. AUDIOVAULT modifies only the least significant bit (LSB) of 16-bit PCM samples, creating an amplitude variance of 1 part in 65,536 (SNR > 94 dB), which is totally imperceptible to human hearing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Sonic FSK modem transmit data over sound?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The modem converts binary data into frequency-shift keying audio tones (audible 1.8/3.0 kHz or ultrasonic 14.5/16.5 kHz). When played aloud, a microphone receives the sound, and a matched Goertzel digital filter demodulates the data back into the original payload."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is AUDIOVAULT zero-knowledge and private?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. All audio encoding, decoding, encryption, and synthesis happen 100% locally in your web browser using HTML5 Web Audio and Web Crypto APIs. No audio or keys ever leave your machine."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://audiovault.app/#howto",
+        "name": "How to Hide Secrets Inside an Audio File with AUDIOVAULT",
+        "description": "Step-by-step instructions for concealing encrypted data inside a 16-bit PCM WAV audio file.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Select or Record Carrier Audio",
+            "text": "Upload a 16-bit PCM WAV file, generate a built-in synth carrier, or record your live voice with the built-in Studio microphone."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Enter Secret Text or Upload File",
+            "text": "Type your confidential message or attach any binary file to hide inside the audio carrier."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Set Encryption Password",
+            "text": "Provide a passphrase to lock the payload with AES-256-GCM and PBKDF2-SHA256 (100,000 iterations)."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Encode & Download",
+            "text": "Click 'Encode Secret into Audio' and download the resulting stego WAV file."
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    window.tailwind = window.tailwind || {};
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: '#05060B',
+            panel: '#0B0F1A',
+            cyanNeon: '#00F0FF',
+            violetNeon: '#8B5CF6',
+            emeraldNeon: '#00FF88',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      background-color: #05060B;
+      color: #E2E8F0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+    .glass-card {
+      background: rgba(11, 15, 26, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(0, 240, 255, 0.18);
+      box-shadow: 0 14px 44px -12px rgba(0, 0, 0, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+    }
+    .cyan-glow {
+      box-shadow: 0 0 28px rgba(0, 240, 255, 0.28);
+    }
+    .violet-glow {
+      box-shadow: 0 0 28px rgba(139, 92, 246, 0.28);
+    }
+    .emerald-glow {
+      box-shadow: 0 0 28px rgba(0, 255, 136, 0.25);
+    }
+    .sonar-grid {
+      background-image:
+        linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col relative selection:bg-cyan-500/30 selection:text-cyan-200">
+  <!-- Ambient Acoustic Wave Background Canvas -->
+  <canvas id="bgWaveCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-35"></canvas>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+
+  <!-- Sticky Navigation Header -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-[#05060B]/88 border-b border-cyan-500/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+      <!-- Brand Logo -->
+      <button id="navBrandBtn" type="button" class="flex items-center gap-3 text-left group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400/20 to-violet-500/20 border border-cyan-400/50 flex items-center justify-center text-[#00F0FF] cyan-glow group-hover:scale-105 transition-transform">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold tracking-wider text-base sm:text-lg text-white">AUDIO<span class="text-[#00F0FF]">VAULT</span></span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-violet-500/20 text-violet-300 border border-violet-500/35">SONIC STEGO v1</span>
+          </div>
+          <p class="text-[10px] text-slate-400 hidden sm:block">16-Bit PCM Steganography &amp; FSK Acoustic Modem</p>
+        </div>
+      </button>
+
+      <!-- Main Navigation Tabs -->
+      <nav class="hidden md:flex items-center gap-1.5 bg-[#090D16] p-1.5 rounded-xl border border-cyan-500/20">
+        <button type="button" data-nav="home" class="nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-cyan-300 bg-cyan-500/15 border border-cyan-500/30">
+          Overview
+        </button>
+        <button type="button" data-nav="hide" class="nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white border border-transparent">
+          Hide in Audio
+        </button>
+        <button type="button" data-nav="reveal" class="nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white border border-transparent">
+          Reveal from Audio
+        </button>
+        <button type="button" data-nav="specs" class="nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white border border-transparent">
+          Protocol &amp; 8 Self-Tests
+        </button>
+      </nav>
+
+      <!-- Quick Demo & Reset Actions -->
+      <div class="flex items-center gap-2">
+        <a href="https://github.com/TejaPriyan/AudioVault" target="_blank" rel="noopener noreferrer" class="hidden sm:flex px-3 py-1.5 rounded-xl text-xs font-mono font-semibold bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-all items-center gap-1.5" title="View Source on GitHub">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <button id="headerInstantDemoBtn" type="button" class="px-3 py-1.5 rounded-xl text-xs font-mono font-semibold bg-cyan-500/15 hover:bg-cyan-500/25 text-[#00F0FF] border border-cyan-500/35 transition-all">
+          ⚡ Instant Demo
+        </button>
+        <button id="headerPurgeBtn" type="button" class="px-3 py-1.5 rounded-xl text-xs font-mono text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-all">
+          Purge
+        </button>
+        <button id="mobileMenuBtn" type="button" class="md:hidden p-2 rounded-lg bg-white/5 text-slate-300 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenuPanel" class="hidden md:hidden border-t border-cyan-500/20 bg-[#070B12] px-4 py-3 flex flex-wrap gap-2">
+      <button type="button" data-nav="home" class="px-3 py-1.5 rounded-lg text-xs font-mono bg-cyan-500/15 text-[#00F0FF]">Overview</button>
+      <button type="button" data-nav="hide" class="px-3 py-1.5 rounded-lg text-xs font-mono text-slate-300 bg-white/5">Hide in Audio</button>
+      <button type="button" data-nav="reveal" class="px-3 py-1.5 rounded-lg text-xs font-mono text-slate-300 bg-white/5">Reveal from Audio</button>
+      <button type="button" data-nav="specs" class="px-3 py-1.5 rounded-lg text-xs font-mono text-slate-300 bg-white/5">Protocol &amp; Self-Tests</button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="relative z-10 flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
+
+    <!-- =================================================================== -->
+    <!-- PAGE 1: HOME / OVERVIEW                                             -->
+    <!-- =================================================================== -->
+    <section id="page-home" class="space-y-12">
+      <!-- Hero Section -->
+      <div class="text-center max-w-4xl mx-auto pt-4 sm:pt-8 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-[#00F0FF] text-xs font-mono">
+          <span class="w-2 h-2 rounded-full bg-[#00F0FF] animate-pulse"></span>
+          ZERO-KNOWLEDGE SONIC STEGANOGRAPHY &bull; 16-BIT PCM LSB &amp; FSK ACOUSTIC MODEM
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          Hide Secrets Inside Sound.<br />
+          <span class="bg-gradient-to-r from-[#00F0FF] via-violet-400 to-[#00FF88] bg-clip-text text-transparent">
+            Transmit Data Through Air.
+          </span>
+        </h1>
+
+        <p class="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          Embed <code class="text-[#00F0FF] font-mono">AES-256-GCM</code> encrypted messages and binary files inside lossless <code class="text-[#00FF88] font-mono">.wav</code> music/voice recordings with zero audible change (<code class="text-[#00FF88] font-mono">SNR &gt; 85 dB</code>)—or convert your secret into an acoustic <code class="text-violet-300 font-mono">FSK Sonic Modem</code> transmission.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <button id="heroHideBtn" type="button" class="px-6 py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-[#00F0FF] via-teal-300 to-[#00FF88] text-slate-950 hover:brightness-110 transition-all cyan-glow">
+            Hide Message in Audio &rarr;
+          </button>
+          <button id="heroRevealBtn" type="button" class="px-6 py-3.5 rounded-xl font-semibold text-sm bg-[#0B0F1A] border border-cyan-500/40 text-[#00F0FF] hover:bg-cyan-950/40 transition-all">
+            Reveal from Audio
+          </button>
+          <button id="heroSonicDemoBtn" type="button" class="px-5 py-3.5 rounded-xl font-mono text-xs bg-violet-500/15 border border-violet-500/40 text-violet-200 hover:bg-violet-500/25 transition-all">
+            🔊 Test Sonic FSK Modem Demo
+          </button>
+        </div>
+      </div>
+
+      <!-- Feature Highlights Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card rounded-2xl p-6 space-y-3 border border-cyan-500/25">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/35 flex items-center justify-center text-[#00F0FF] font-mono font-bold">
+            01
+          </div>
+          <h3 class="text-base font-bold text-white">16-Bit PCM LSB Steganography</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Modifies only the Least Significant Bit (`&plusmn;1` out of `65,536` amplitude steps) of 16-bit PCM `.wav` samples. Achieves `&gt;85 dB` Signal-to-Noise Ratio—completely imperceptible on studio headphones.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 space-y-3 border border-violet-500/25">
+          <div class="w-10 h-10 rounded-xl bg-violet-500/15 border border-violet-500/35 flex items-center justify-center text-violet-300 font-mono font-bold">
+            02
+          </div>
+          <h3 class="text-base font-bold text-white">Sonic FSK Data-Over-Sound Modem</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Synthesizes phase-continuous Frequency-Shift Keying (`1800 Hz` / `3000 Hz` Audible or `14.5 kHz` / `16.5 kHz` Near-Ultrasonic) tones and decodes them with a matched Goertzel digital filter.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 space-y-3 border border-emerald-500/25">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/35 flex items-center justify-center text-[#00FF88] font-mono font-bold">
+            03
+          </div>
+          <h3 class="text-base font-bold text-white">AES-256-GCM + Live Spectrogram</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Every payload is authenticated with `PBKDF2-HMAC-SHA256` (`100,000` iterations), `AES-256-GCM`, and `IEEE 802.3 CRC32`, paired with a live dual-waveform &amp; 50x sample-delta oscilloscope.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 2: HIDE MESSAGE IN AUDIO (SENDER WORKFLOW)                     -->
+    <!-- =================================================================== -->
+    <section id="page-hide" class="hidden space-y-8">
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-cyan-500/20 pb-5">
+        <div>
+          <span class="text-xs font-mono text-[#00F0FF] uppercase">WORKFLOW A &bull; SENDER ENCODER</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white mt-0.5">Hide Secret Message in Audio</h1>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="synthAmbientBtn" type="button" class="px-3.5 py-2 rounded-xl text-xs font-mono font-semibold bg-cyan-500/15 hover:bg-cyan-500/25 text-[#00F0FF] border border-cyan-500/35 transition-all">
+            🎹 Generate Ambient Synth Carrier (5s)
+          </button>
+          <button id="synthSonarBtn" type="button" class="px-3.5 py-2 rounded-xl text-xs font-mono font-semibold bg-violet-500/15 hover:bg-violet-500/25 text-violet-300 border border-violet-500/35 transition-all">
+            🛸 Generate Cyber Pulse Carrier (5s)
+          </button>
+        </div>
+      </div>
+
+      <!-- Error Alert Banner -->
+      <div id="hideErrorBanner" class="hidden rounded-xl bg-rose-950/85 border border-rose-500/50 p-4 flex items-center justify-between gap-3 text-xs font-mono text-rose-200">
+        <span id="hideErrorText">Error</span>
+        <button id="hideErrorCloseBtn" type="button" class="text-rose-300 hover:text-white font-bold text-base">&times;</button>
+      </div>
+
+      <!-- Main 2-Column Sender Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Left 7 Cols: Carrier Audio, Secret Payload, Encryption & Engine Mode -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- Step 1: Carrier Audio Source (Live Mic Voice Recorder + File Upload + Synth) -->
+          <div class="glass-card rounded-2xl p-6 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2.5">
+                <span class="w-6 h-6 rounded-md bg-cyan-500/20 border border-cyan-500/40 text-[#00F0FF] font-mono text-xs font-bold flex items-center justify-center">1</span>
+                <h2 class="text-base font-bold text-white">Record Live Voice or Upload Carrier Audio</h2>
+              </div>
+              <span id="micStatusBadge" class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-rose-500/15 text-rose-300 border border-rose-500/30">
+                🎙️ LIVE MIC STUDIO READY
+              </span>
+            </div>
+
+            <!-- Live Microphone Voice Recorder Studio Box -->
+            <div class="rounded-2xl bg-[#060912] border border-cyan-500/30 p-4 space-y-3.5">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-2.5">
+                  <span id="micPulseDot" class="w-3 h-3 rounded-full bg-slate-600"></span>
+                  <div>
+                    <div class="text-xs font-bold text-white font-mono">Speak Into Microphone to Create Voice Carrier</div>
+                    <div id="micStatusSubtext" class="text-[11px] text-slate-400">Record your live voice, then hide your secret text inside that exact recording</div>
+                  </div>
+                </div>
+                <div id="micTimerDisplay" class="px-3 py-1 rounded-lg bg-[#04060A] border border-white/10 font-mono text-sm font-bold text-[#00F0FF]">
+                  00:00.0
+                </div>
+              </div>
+
+              <!-- Live Mic Level Meter + Real-Time Oscilloscope -->
+              <div class="space-y-1.5">
+                <div class="w-full h-2 rounded-full bg-[#04060A] overflow-hidden border border-white/5">
+                  <div id="micVolumeBar" class="h-full w-0 bg-gradient-to-r from-[#00F0FF] via-[#00FF88] to-rose-500 transition-all duration-75"></div>
+                </div>
+                <div class="rounded-xl bg-[#04060A] border border-cyan-500/20 p-2 sonar-grid">
+                  <canvas id="liveMicCanvas" width="560" height="60" class="w-full h-14 block"></canvas>
+                </div>
+              </div>
+
+              <!-- Record / Stop / Simulated Voice Controls -->
+              <div class="flex flex-wrap items-center gap-2.5">
+                <button
+                  id="startVoiceRecBtn"
+                  type="button"
+                  class="px-4 py-2.5 rounded-xl font-mono text-xs font-bold bg-rose-500 hover:bg-rose-400 text-white transition-all flex items-center gap-2 shadow-lg shadow-rose-500/25"
+                >
+                  <span class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
+                  <span>Start Live Voice Recording</span>
+                </button>
+                <button
+                  id="stopVoiceRecBtn"
+                  type="button"
+                  disabled
+                  class="px-4 py-2.5 rounded-xl font-mono text-xs font-bold bg-slate-800 text-slate-500 border border-white/10 transition-all cursor-not-allowed"
+                >
+                  ⏹ Stop &amp; Use Voice Recording
+                </button>
+                <button
+                  id="simulateVoiceRecBtn"
+                  type="button"
+                  class="px-3.5 py-2.5 rounded-xl font-mono text-xs font-semibold bg-cyan-500/15 hover:bg-cyan-500/25 text-[#00F0FF] border border-cyan-500/30 transition-all"
+                >
+                  🗣️ Generate Sample Voice Note (4s)
+                </button>
+              </div>
+            </div>
+
+            <!-- Or Upload Existing File Dropzone -->
+            <div id="audioHideDropzone" class="border-2 border-dashed border-cyan-500/25 hover:border-[#00F0FF] rounded-2xl p-4 text-center transition-all cursor-pointer bg-[#070A12]/60">
+              <input id="audioHideFileInput" type="file" accept="audio/wav,audio/mpeg,audio/mp3,audio/ogg,audio/webm,.wav,.mp3,.ogg" class="hidden" />
+              <p class="text-xs sm:text-sm font-semibold text-white">Or drop an existing audio file (<code class="text-[#00F0FF]">.wav</code>, <code class="text-[#00F0FF]">.mp3</code>, <code class="text-[#00F0FF]">.ogg</code>) here or <span class="text-[#00F0FF] underline">browse device</span></p>
+            </div>
+
+            <!-- Loaded Carrier Audio Preview & Waveform -->
+            <div id="carrierAudioCard" class="space-y-3 pt-1">
+              <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+                <span class="text-cyan-300 font-semibold">ACTIVE CARRIER: <strong id="carrierNameLabel" class="text-white">ambient_chord_44k.wav</strong></span>
+                <div class="flex items-center gap-3">
+                  <span id="carrierSpecsLabel" class="text-slate-400">44,100 Hz &bull; 16-Bit PCM</span>
+                  <button id="changeCarrierBtn" type="button" class="text-[#00F0FF] hover:underline">Upload Custom Audio</button>
+                </div>
+              </div>
+
+              <!-- Live Carrier Waveform Canvas -->
+              <div class="rounded-xl bg-[#04060A] border border-cyan-500/25 p-2.5 sonar-grid">
+                <canvas id="carrierWaveformCanvas" width="600" height="84" class="w-full h-20 block"></canvas>
+              </div>
+
+              <audio id="carrierAudioPlayer" controls class="w-full h-9"></audio>
+            </div>
+          </div>
+
+          <!-- Step 2: Secret Message or Binary File Payload -->
+          <div class="glass-card rounded-2xl p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <span class="w-6 h-6 rounded-md bg-cyan-500/20 border border-cyan-500/40 text-[#00F0FF] font-mono text-xs font-bold flex items-center justify-center">2</span>
+                <h2 class="text-base font-bold text-white">Compose Secret Payload</h2>
+              </div>
+
+              <div class="inline-flex rounded-xl bg-[#060911] p-1 border border-cyan-500/20 text-xs font-mono">
+                <button id="modeTextBtn" type="button" class="px-3 py-1 rounded-lg bg-cyan-500/20 text-[#00F0FF] font-semibold transition-all">Text Message</button>
+                <button id="modeFileBtn" type="button" class="px-3 py-1 rounded-lg text-slate-400 hover:text-white transition-all">Binary File</button>
+              </div>
+            </div>
+
+            <!-- Text Payload Input -->
+            <div id="textPayloadBox" class="space-y-2.5">
+              <textarea
+                id="secretTextInput"
+                rows="4"
+                placeholder="Enter your confidential message to hide inside the audio waveform..."
+                class="w-full rounded-xl bg-[#060911] border border-cyan-500/25 focus:border-[#00F0FF] focus:outline-none p-3.5 text-sm text-white font-mono resize-y"
+              ></textarea>
+              <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-slate-400">
+                <div class="flex items-center gap-2">
+                  <button id="sampleMsgBtn" type="button" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300">Insert Sample</button>
+                  <button id="unicodeMsgBtn" type="button" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300">Insert Unicode 🔐</button>
+                  <button id="clearMsgBtn" type="button" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-rose-500/20 text-rose-300">Clear</button>
+                </div>
+                <div>
+                  <span id="charCountLabel" class="text-white font-semibold">0</span> chars &bull; <span id="byteCountLabel" class="text-[#00F0FF] font-semibold">0 B</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- File Payload Input -->
+            <div id="filePayloadBox" class="hidden space-y-3">
+              <div id="secretFileDropzone" class="border-2 border-dashed border-cyan-500/30 hover:border-[#00F0FF] rounded-xl p-5 text-center cursor-pointer bg-[#060911]">
+                <input id="secretFileInput" type="file" class="hidden" />
+                <p class="text-xs sm:text-sm font-semibold text-white">Click to attach any secret file (<code class="text-[#00F0FF]">.txt</code>, <code class="text-[#00F0FF]">.json</code>, <code class="text-[#00F0FF]">.pdf</code>, <code class="text-[#00F0FF]">.zip</code>)</p>
+              </div>
+              <div id="secretFileCard" class="hidden flex items-center justify-between p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono">
+                <div>
+                  <span id="secretFileName" class="text-white font-bold">-</span>
+                  <span id="secretFileSize" class="text-[#00F0FF] ml-2">-</span>
+                </div>
+                <button id="removeSecretFileBtn" type="button" class="text-rose-400 hover:text-rose-300 font-bold">&times; Remove</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: AES-256-GCM Encryption & Transmission Mode -->
+          <div class="glass-card rounded-2xl p-6 space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2.5">
+                <span class="w-6 h-6 rounded-md bg-cyan-500/20 border border-cyan-500/40 text-[#00F0FF] font-mono text-xs font-bold flex items-center justify-center">3</span>
+                <h2 class="text-base font-bold text-white">Encryption &amp; Acoustic Engine Mode</h2>
+              </div>
+              <span id="encStatusBadge" class="px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                UNENCRYPTED
+              </span>
+            </div>
+
+            <!-- Password Input -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1">
+                <label for="encodePassInput" class="block text-xs font-mono text-slate-300">AES-256-GCM Password (Optional)</label>
+                <div class="relative">
+                  <input
+                    id="encodePassInput"
+                    type="password"
+                    placeholder="Enter encryption password..."
+                    class="w-full rounded-xl bg-[#060911] border border-cyan-500/25 focus:border-[#00F0FF] focus:outline-none px-3.5 py-2.5 pr-14 text-xs text-white font-mono"
+                  />
+                  <button id="toggleEncodePassBtn" type="button" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-mono text-slate-400 hover:text-white">SHOW</button>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <label for="encodeConfirmPassInput" class="block text-xs font-mono text-slate-300">Confirm Password</label>
+                <input
+                  id="encodeConfirmPassInput"
+                  type="password"
+                  placeholder="Re-enter password..."
+                  class="w-full rounded-xl bg-[#060911] border border-cyan-500/25 focus:border-[#00F0FF] focus:outline-none px-3.5 py-2.5 text-xs text-white font-mono"
+                />
+              </div>
+            </div>
+
+            <!-- Engine Selector: 16-Bit PCM LSB vs Audible FSK vs Ultrasonic FSK -->
+            <div class="space-y-2 pt-1">
+              <label class="block text-xs font-mono text-slate-300">Acoustic Embedding Method</label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                <button id="enginePcmBtn" type="button" class="text-left p-3 rounded-xl border-2 border-[#00F0FF] bg-cyan-500/10 transition-all space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-white font-mono">16-Bit PCM LSB</span>
+                    <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-[#00FF88]">&gt;85 dB</span>
+                  </div>
+                  <p class="text-[11px] text-slate-300 leading-snug">Hides inside music/voice samples with zero audible change.</p>
+                </button>
+
+                <button id="engineFskAudibleBtn" type="button" class="text-left p-3 rounded-xl border border-white/10 bg-[#060911] hover:border-violet-500/40 transition-all space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-white font-mono">Sonic FSK Modem</span>
+                    <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-violet-500/20 text-violet-300">1.8/3.0 kHz</span>
+                  </div>
+                  <p class="text-[11px] text-slate-300 leading-snug">Converts data into acoustic modem tones you can play over speakers.</p>
+                </button>
+
+                <button id="engineFskUltraBtn" type="button" class="text-left p-3 rounded-xl border border-white/10 bg-[#060911] hover:border-violet-500/40 transition-all space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-white font-mono">Ultrasonic FSK</span>
+                    <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300">14.5/16.5 kHz</span>
+                  </div>
+                  <p class="text-[11px] text-slate-300 leading-snug">High-frequency near-ultrasonic stealth tones for covert air transfer.</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 5 Cols: Real-Time Capacity Telemetry & Encode Button -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="glass-card rounded-2xl p-6 space-y-5">
+            <div class="flex items-center justify-between border-b border-cyan-500/15 pb-3.5">
+              <div>
+                <span class="text-[11px] font-mono text-[#00F0FF] uppercase">ACOUSTIC CAPACITY ENGINE</span>
+                <h3 class="text-base font-bold text-white">Sample &amp; Bitrate Telemetry</h3>
+              </div>
+              <span id="capPctBadge" class="px-2.5 py-1 rounded-lg font-mono text-xs font-bold bg-cyan-500/15 text-[#00F0FF] border border-cyan-500/30">
+                0.00%
+              </span>
+            </div>
+
+            <div class="space-y-2">
+              <div class="w-full h-3 rounded-full bg-[#060911] border border-cyan-500/20 overflow-hidden p-0.5">
+                <div id="capProgressBar" class="h-full rounded-full bg-gradient-to-r from-[#00F0FF] to-[#00FF88] transition-all duration-300" style="width: 0%"></div>
+              </div>
+              <div class="flex justify-between text-[11px] font-mono text-slate-400">
+                <span id="capUsedLabel">Used: 0 B</span>
+                <span id="capMaxLabel">Max Capacity: 0 B</span>
+              </div>
+            </div>
+
+            <div class="space-y-2 text-xs font-mono bg-[#060911] p-4 rounded-xl border border-white/5">
+              <div class="flex justify-between">
+                <span class="text-slate-400">Active Engine:</span>
+                <span id="telEngineMode" class="text-[#00F0FF] font-semibold">16-Bit PCM LSB</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Carrier Samples:</span>
+                <span id="telTotalSamples" class="text-white font-semibold">0 samples</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Carrier Duration:</span>
+                <span id="telDuration" class="text-slate-200">0.00 sec</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Header + Auth Overhead:</span>
+                <span id="telHeaderBytes" class="text-slate-300">0 B</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Total Packet Size:</span>
+                <span id="telPacketBytes" class="text-[#00FF88] font-semibold">0 B</span>
+              </div>
+            </div>
+
+            <button
+              id="encodeAudioBtn"
+              type="button"
+              class="w-full py-4 px-6 rounded-xl font-extrabold text-sm tracking-wide uppercase bg-gradient-to-r from-[#00F0FF] via-teal-300 to-[#00FF88] text-slate-950 hover:brightness-110 active:scale-[0.99] transition-all cyan-glow flex items-center justify-center gap-2.5"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z" />
+              </svg>
+              <span>ENCODE SECRET INTO AUDIO</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- =================================================================== -->
+      <!-- ENCODED AUDIO RESULT & SPECTROGRAM / WAVEFORM INSPECTOR             -->
+      <!-- =================================================================== -->
+      <div id="encodeResultPanel" class="hidden space-y-6 pt-4">
+        <div class="rounded-2xl bg-gradient-to-r from-cyan-500/20 via-violet-900/25 to-emerald-900/20 border border-[#00F0FF]/50 p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-[#00FF88] font-bold">ACOUSTIC PAYLOAD EMBEDDED SUCCESSFULLY ✓</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">Your Encoded Stego-Audio `.WAV` is Ready</h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">
+              Listen to the encoded audio below, inspect the 50x sample-delta oscilloscope, download the `.wav`, or send it directly to the Reveal tab.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <button id="downloadEncodedWavBtn" type="button" class="px-5 py-3 rounded-xl font-bold text-xs sm:text-sm bg-[#00FF88] hover:bg-emerald-400 text-slate-950 transition-all emerald-glow">
+              ⬇ Download Encoded .WAV
+            </button>
+            <button id="sendAudioToRevealBtn" type="button" class="px-4 py-3 rounded-xl font-mono text-xs font-semibold bg-cyan-950 hover:bg-cyan-900 text-[#00F0FF] border border-cyan-400/40 transition-all">
+              Send to Reveal Tab &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Audio Player + Dual Oscilloscope / 50x Sample Delta Visualizer + Metrics -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-8 glass-card rounded-2xl p-6 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="text-xs font-mono text-[#00F0FF] uppercase">TIME &amp; FREQUENCY DOMAIN INSPECTOR</span>
+                <h3 class="text-base font-bold text-white">Encoded Waveform &amp; 50x Amplified Sample Delta</h3>
+              </div>
+              <span class="text-xs font-mono text-emerald-300">Cyan = Waveform &bull; Neon Green = Modified Samples</span>
+            </div>
+
+            <div class="rounded-xl bg-[#04060A] border border-cyan-500/30 p-3 sonar-grid">
+              <canvas id="encodedDiffCanvas" width="720" height="160" class="w-full h-40 block"></canvas>
+            </div>
+
+            <audio id="encodedAudioPlayer" controls class="w-full h-10"></audio>
+          </div>
+
+          <div class="lg:col-span-4 glass-card rounded-2xl p-6 space-y-3 font-mono text-xs">
+            <div class="border-b border-cyan-500/15 pb-2.5">
+              <span class="text-[11px] text-[#00F0FF] uppercase">ACOUSTIC FIDELITY METRICS</span>
+              <h3 class="text-base font-bold text-white font-sans">Signal Analysis</h3>
+            </div>
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Signal-to-Noise (SNR):</span>
+              <span id="resSnrText" class="text-[#00FF88] font-bold">-</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Max Sample Shift:</span>
+              <span id="resMaxDeltaText" class="text-cyan-300 font-bold">-</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Modified Samples:</span>
+              <span id="resModSamplesText" class="text-white">-</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Encoding Mode:</span>
+              <span id="resModeText" class="text-violet-300 font-semibold">-</span>
+            </div>
+            <div class="flex justify-between py-1">
+              <span class="text-slate-400">CRC32 Checksum:</span>
+              <span id="resCrcHexText" class="text-[#00FF88]">-</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 3: REVEAL MESSAGE FROM AUDIO (RECEIVER WORKFLOW)               -->
+    <!-- =================================================================== -->
+    <section id="page-reveal" class="hidden space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-cyan-500/20 pb-5">
+        <div>
+          <span class="text-xs font-mono text-[#00F0FF] uppercase">WORKFLOW B &bull; RECEIVER DECODER</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white mt-0.5">Reveal Hidden Message from Audio</h1>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="revLoadPcmDemoBtn" type="button" class="px-3.5 py-2 rounded-xl text-xs font-mono font-semibold bg-emerald-500/15 hover:bg-emerald-500/25 text-[#00FF88] border border-emerald-500/35 transition-all">
+            ⚡ Load Encrypted PCM Sample (Pass: Vault2026!)
+          </button>
+          <button id="revLoadFskDemoBtn" type="button" class="px-3.5 py-2 rounded-xl text-xs font-mono font-semibold bg-violet-500/15 hover:bg-violet-500/25 text-violet-300 border border-violet-500/35 transition-all">
+            🔊 Load Sonic FSK Modem Sample
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Left 5 Cols: Upload WAV & Header Telemetry -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="glass-card rounded-2xl p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h2 class="text-base font-bold text-white">Upload Encoded `.WAV` Audio</h2>
+              <span class="text-xs font-mono text-slate-400">Auto-Detects PCM &amp; FSK</span>
+            </div>
+
+            <div id="audioRevealDropzone" class="border-2 border-dashed border-cyan-500/35 hover:border-[#00F0FF] rounded-2xl p-6 text-center transition-all cursor-pointer bg-[#060911]/80">
+              <input id="audioRevealFileInput" type="file" accept="audio/wav,.wav" class="hidden" />
+              <div class="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 mx-auto flex items-center justify-center text-[#00F0FF]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <p class="text-sm font-bold text-white mt-2.5">Drop `.wav` voice/audio file here or <span class="text-[#00F0FF] underline">browse</span></p>
+              <p class="text-xs text-slate-400 mt-1">Automatically extracts secret messages from recorded voice notes, music, or FSK tones.</p>
+            </div>
+
+            <!-- Live Mic Acoustic Receiver on Reveal Page -->
+            <div class="rounded-xl bg-[#060912] border border-violet-500/30 p-3.5 flex flex-wrap items-center justify-between gap-2">
+              <div class="text-xs">
+                <span class="font-bold text-white font-mono block">🎙️ Live Mic Receiver</span>
+                <span id="revMicStatusLabel" class="text-[11px] text-slate-400">Record incoming audio from mic to decode</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button id="revStartMicBtn" type="button" class="px-3 py-1.5 rounded-lg font-mono text-xs font-bold bg-violet-500/20 hover:bg-violet-500/30 text-violet-200 border border-violet-500/40">
+                  🎙️ Listen via Mic
+                </button>
+                <button id="revStopMicBtn" type="button" disabled class="px-3 py-1.5 rounded-lg font-mono text-xs font-bold bg-slate-800 text-slate-500 border border-white/10 cursor-not-allowed">
+                  ⏹ Stop &amp; Decode
+                </button>
+              </div>
+            </div>
+
+            <div id="revealAudioPreviewCard" class="hidden space-y-3 pt-2">
+              <div class="flex justify-between text-xs font-mono">
+                <span id="revAudioFileName" class="text-white font-bold truncate">-</span>
+                <span id="revAudioSpecs" class="text-[#00F0FF]">-</span>
+              </div>
+              <div class="rounded-xl bg-[#04060A] border border-cyan-500/25 p-2 sonar-grid">
+                <canvas id="revealWaveformCanvas" width="500" height="72" class="w-full h-16 block"></canvas>
+              </div>
+              <audio id="revealAudioPlayer" controls class="w-full h-9"></audio>
+            </div>
+          </div>
+
+          <!-- Header Telemetry Card -->
+          <div class="glass-card rounded-2xl p-6 space-y-3 font-mono text-xs">
+            <div class="flex items-center justify-between border-b border-cyan-500/15 pb-3">
+              <span class="text-[#00F0FF] font-bold uppercase">ACOUSTIC FRAME TELEMETRY</span>
+              <span id="revStatusBadge" class="px-2.5 py-0.5 rounded-full text-[10px] bg-slate-800 text-slate-400">WAITING</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Detected Engine:</span>
+              <span id="revDetEngine" class="text-slate-500">-</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Magic Header:</span>
+              <span id="revDetMagic" class="text-slate-500">-</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Encryption:</span>
+              <span id="revDetEnc" class="text-slate-500">-</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Payload Size:</span>
+              <span id="revDetSize" class="text-slate-500">-</span>
+            </div>
+            <div class="flex justify-between py-1">
+              <span class="text-slate-400">CRC32 Checksum:</span>
+              <span id="revDetCrc" class="text-slate-500">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 7 Cols: Password Prompt / Decoded Output -->
+        <div class="lg:col-span-7 space-y-6">
+          <div id="revEmptyCard" class="glass-card rounded-2xl p-12 text-center space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 mx-auto flex items-center justify-center text-[#00F0FF]">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white">Ready to Inspect Audio Waveform</h3>
+            <p class="text-xs sm:text-sm text-slate-400 max-w-md mx-auto">
+              Upload any `.wav` file on the left—or click one of the sample buttons above—to extract and decrypt the hidden acoustic payload.
+            </p>
+          </div>
+
+          <div id="revErrorCard" class="hidden rounded-2xl bg-rose-950/60 border border-rose-500/45 p-6 space-y-2">
+            <span class="text-xs font-mono uppercase text-rose-300 font-bold">EXTRACTION ALERT</span>
+            <h3 id="revErrorTitle" class="text-base font-bold text-white">No hidden AUDIOVAULT payload detected.</h3>
+            <p id="revErrorDetail" class="text-xs text-rose-100/90 leading-relaxed"></p>
+          </div>
+
+          <!-- Password Unlock Card -->
+          <div id="revPasswordCard" class="hidden glass-card rounded-2xl p-6 border border-amber-500/45 space-y-4">
+            <div>
+              <span class="text-xs font-mono uppercase text-amber-300 font-bold">AES-256-GCM LOCKED AUDIO PAYLOAD</span>
+              <h3 class="text-lg font-bold text-white mt-0.5">Enter Password to Decrypt</h3>
+            </div>
+            <div id="revWrongPassBanner" class="hidden rounded-xl bg-rose-950/80 border border-rose-500/50 p-3 text-xs font-mono text-rose-200">
+              Incorrect password. Unable to decrypt this acoustic payload.
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input
+                id="revPassInput"
+                type="password"
+                placeholder="Enter decryption password..."
+                class="flex-1 rounded-xl bg-[#060911] border border-amber-500/40 focus:border-[#00F0FF] focus:outline-none px-4 py-3 text-sm text-white font-mono"
+              />
+              <button id="revDecryptBtn" type="button" class="px-6 py-3 rounded-xl font-bold text-xs sm:text-sm bg-gradient-to-r from-amber-400 to-[#00FF88] text-slate-950 hover:brightness-110 transition-all">
+                DECRYPT &amp; REVEAL
+              </button>
+            </div>
+            <p id="revDemoHint" class="hidden text-xs font-mono text-emerald-300">
+              Demo Hint: Password <code class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-[#00FF88]">Vault2026!</code> is pre-filled.
+            </p>
+          </div>
+
+          <!-- Revealed Output Card -->
+          <div id="revSuccessCard" class="hidden glass-card rounded-2xl p-6 border border-[#00FF88]/50 space-y-4 emerald-glow">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-emerald-500/20 pb-3.5">
+              <div>
+                <span class="text-[11px] font-mono uppercase text-[#00FF88] font-bold">ACOUSTIC PAYLOAD VERIFIED &amp; EXTRACTED ✓</span>
+                <h3 class="text-lg font-bold text-white">Revealed Secret Message</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <button id="copyRevealedBtn" type="button" class="px-3.5 py-2 rounded-xl text-xs font-mono font-semibold bg-emerald-500/15 hover:bg-emerald-500/25 text-[#00FF88] border border-emerald-500/35">
+                  Copy Text
+                </button>
+                <button id="downloadRevealedPayloadBtn" type="button" class="px-3.5 py-2 rounded-xl text-xs font-mono font-semibold bg-[#00FF88] hover:bg-emerald-400 text-slate-950">
+                  Download File / TXT
+                </button>
+              </div>
+            </div>
+
+            <div class="rounded-xl bg-[#04060A] border border-emerald-500/30 p-5">
+              <pre id="revOutputText" class="text-sm sm:text-base text-emerald-100 font-mono whitespace-pre-wrap break-words leading-relaxed max-h-80 overflow-y-auto"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 4: PROTOCOL SPECS & 8-TEST AUTOMATED VERIFICATION SUITE        -->
+    <!-- =================================================================== -->
+    <section id="page-specs" class="hidden space-y-8">
+      <div class="glass-card rounded-2xl p-6 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-cyan-500/20 pb-4">
+          <div>
+            <span class="text-xs font-mono text-[#00F0FF] uppercase">LIVE CRYPTOGRAPHIC &amp; ACOUSTIC SELF-TEST RUNNER</span>
+            <h2 class="text-xl font-bold text-white">Automated 8-Test Verification Suite</h2>
+          </div>
+          <div class="flex items-center gap-3">
+            <span id="testSuiteBadge" class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-[#00FF88] border border-emerald-500/40">
+              8 / 8 TESTS PASSED ✓
+            </span>
+            <button id="reRunTestsBtn" type="button" class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold bg-cyan-500/15 hover:bg-cyan-500/25 text-[#00F0FF] border border-cyan-500/30">
+              Re-Run All 8 Tests
+            </button>
+          </div>
+        </div>
+
+        <div id="testGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="relative z-10 border-t border-cyan-500/15 bg-[#05060B]/90 py-5 px-4 text-xs text-slate-500 font-mono mt-12">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <div>
+        AUDIOVAULT v1.0 &bull; 16-Bit PCM LSB Steganography &amp; Goertzel FSK Sonic Modem &bull; AES-256-GCM
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/TejaPriyan/AudioVault" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 underline underline-offset-4">GitHub Repository</a>
+        <span>&bull;</span>
+        <a href="https://github.com/TejaPriyan/AudioVault/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white">MIT License</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // =====================================================================
+      // 1. CRC32 INTEGRITY ENGINE (IEEE 802.3)
+      // =====================================================================
+      const CRC_TABLE = new Uint32Array(256);
+      for (let i = 0; i < 256; i++) {
+        let c = i;
+        for (let k = 0; k < 8; k++) {
+          c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+        }
+        CRC_TABLE[i] = c >>> 0;
+      }
+
+      function computeCRC32(bytes) {
+        let crc = 0xFFFFFFFF;
+        for (let i = 0; i < bytes.length; i++) {
+          crc = CRC_TABLE[(crc ^ bytes[i]) & 0xFF] ^ (crc >>> 8);
+        }
+        return (crc ^ 0xFFFFFFFF) >>> 0;
+      }
+
+      // =====================================================================
+      // 2. AES-256-GCM + PBKDF2-SHA256 CRYPTOGRAPHY ENGINE
+      // =====================================================================
+      const PBKDF2_ITERATIONS = 100000;
+      const SALT_LENGTH = 16;
+      const NONCE_LENGTH = 12;
+      const GCM_TAG_LENGTH = 16;
+
+      const PureCrypto = (function () {
+        const SBOX = new Uint8Array([
+          0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
+          0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0,
+          0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc, 0x34, 0xa5, 0xe5, 0xf1, 0x71, 0xd8, 0x31, 0x15,
+          0x04, 0xc7, 0x23, 0xc3, 0x18, 0x96, 0x05, 0x9a, 0x07, 0x12, 0x80, 0xe2, 0xeb, 0x27, 0xb2, 0x75,
+          0x09, 0x83, 0x2c, 0x1a, 0x1b, 0x6e, 0x5a, 0xa0, 0x52, 0x3b, 0xd6, 0xb3, 0x29, 0xe3, 0x2f, 0x84,
+          0x53, 0xd1, 0x00, 0xed, 0x20, 0xfc, 0xb1, 0x5b, 0x6a, 0xcb, 0xbe, 0x39, 0x4a, 0x4c, 0x58, 0xcf,
+          0xd0, 0xef, 0xaa, 0xfb, 0x43, 0x4d, 0x33, 0x85, 0x45, 0xf9, 0x02, 0x7f, 0x50, 0x3c, 0x9f, 0xa8,
+          0x51, 0xa3, 0x40, 0x8f, 0x92, 0x9d, 0x38, 0xf5, 0xbc, 0xb6, 0xda, 0x21, 0x10, 0xff, 0xf3, 0xd2,
+          0xcd, 0x0c, 0x13, 0xec, 0x5f, 0x97, 0x44, 0x17, 0xc4, 0xa7, 0x7e, 0x3d, 0x64, 0x5d, 0x19, 0x73,
+          0x60, 0x81, 0x4f, 0xdc, 0x22, 0x2a, 0x90, 0x88, 0x46, 0xee, 0xb8, 0x14, 0xde, 0x5e, 0x0b, 0xdb,
+          0xe0, 0x32, 0x3a, 0x0a, 0x49, 0x06, 0x24, 0x5c, 0xc2, 0xd3, 0xac, 0x62, 0x91, 0x95, 0xe4, 0x79,
+          0xe7, 0xc8, 0x37, 0x6d, 0x8d, 0xd5, 0x4e, 0xa9, 0x6c, 0x56, 0xf4, 0xea, 0x65, 0x7a, 0xae, 0x08,
+          0xba, 0x78, 0x25, 0x2e, 0x1c, 0xa6, 0xb4, 0xc6, 0xe8, 0xdd, 0x74, 0x1f, 0x4b, 0xbd, 0x8b, 0x8a,
+          0x70, 0x3e, 0xb5, 0x66, 0x48, 0x03, 0xf6, 0x0e, 0x61, 0x35, 0x57, 0xb9, 0x86, 0xc1, 0x1d, 0x9e,
+          0xe1, 0xf8, 0x98, 0x11, 0x69, 0xd9, 0x8e, 0x94, 0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf,
+          0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16
+        ]);
+        const RCON = [0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36];
+        const XTIME = new Uint8Array(256);
+        for (let i = 0; i < 256; i++) {
+          XTIME[i] = ((i << 1) ^ (i & 0x80 ? 0x1b : 0)) & 0xFF;
+        }
+
+        const K = [
+          0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+          0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+          0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+          0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+          0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+          0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+          0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+          0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
+        ];
+
+        function subWord(w) {
+          return (SBOX[(w >>> 24) & 0xFF] << 24) |
+                 (SBOX[(w >>> 16) & 0xFF] << 16) |
+                 (SBOX[(w >>> 8) & 0xFF] << 8) |
+                 SBOX[w & 0xFF];
+        }
+
+        function keyExpansion256(key) {
+          const w = new Uint32Array(60);
+          for (let i = 0; i < 8; i++) {
+            w[i] = (key[4 * i] << 24) | (key[4 * i + 1] << 16) | (key[4 * i + 2] << 8) | key[4 * i + 3];
+          }
+          for (let i = 8; i < 60; i++) {
+            let temp = w[i - 1];
+            if (i % 8 === 0) {
+              const rot = (temp << 8) | (temp >>> 24);
+              temp = subWord(rot) ^ (RCON[Math.floor(i / 8)] << 24);
+            } else if (i % 8 === 4) {
+              temp = subWord(temp);
+            }
+            w[i] = (w[i - 8] ^ temp) >>> 0;
+          }
+          return w;
+        }
+
+        function mix(col) {
+          const b0 = (col >>> 24) & 0xFF, b1 = (col >>> 16) & 0xFF, b2 = (col >>> 8) & 0xFF, b3 = col & 0xFF;
+          const x0 = XTIME[b0], x1 = XTIME[b1], x2 = XTIME[b2], x3 = XTIME[b3];
+          return ((x0 ^ b1 ^ x1 ^ b2 ^ b3) << 24) |
+                 ((b0 ^ x1 ^ b2 ^ x2 ^ b3) << 16) |
+                 ((b0 ^ b1 ^ x2 ^ b3 ^ x3) << 8) |
+                 (b0 ^ x0 ^ b1 ^ b2 ^ x3);
+        }
+
+        function aesEncryptBlock(w, input, out, outOff = 0) {
+          let s0 = (input[0] << 24) | (input[1] << 16) | (input[2] << 8) | input[3];
+          let s1 = (input[4] << 24) | (input[5] << 16) | (input[6] << 8) | input[7];
+          let s2 = (input[8] << 24) | (input[9] << 16) | (input[10] << 8) | input[11];
+          let s3 = (input[12] << 24) | (input[13] << 16) | (input[14] << 8) | input[15];
+
+          s0 ^= w[0]; s1 ^= w[1]; s2 ^= w[2]; s3 ^= w[3];
+
+          for (let r = 1; r < 14; r++) {
+            const rw = r * 4;
+            const t0 = (SBOX[(s0 >>> 24) & 0xFF] << 24) | (SBOX[(s1 >>> 16) & 0xFF] << 16) | (SBOX[(s2 >>> 8) & 0xFF] << 8) | SBOX[s3 & 0xFF];
+            const t1 = (SBOX[(s1 >>> 24) & 0xFF] << 24) | (SBOX[(s2 >>> 16) & 0xFF] << 16) | (SBOX[(s3 >>> 8) & 0xFF] << 8) | SBOX[s0 & 0xFF];
+            const t2 = (SBOX[(s2 >>> 24) & 0xFF] << 24) | (SBOX[(s3 >>> 16) & 0xFF] << 16) | (SBOX[(s0 >>> 8) & 0xFF] << 8) | SBOX[s1 & 0xFF];
+            const t3 = (SBOX[(s3 >>> 24) & 0xFF] << 24) | (SBOX[(s0 >>> 16) & 0xFF] << 16) | (SBOX[(s1 >>> 8) & 0xFF] << 8) | SBOX[s2 & 0xFF];
+
+            s0 = (mix(t0) ^ w[rw]) >>> 0;
+            s1 = (mix(t1) ^ w[rw + 1]) >>> 0;
+            s2 = (mix(t2) ^ w[rw + 2]) >>> 0;
+            s3 = (mix(t3) ^ w[rw + 3]) >>> 0;
+          }
+
+          const t0 = (SBOX[(s0 >>> 24) & 0xFF] << 24) | (SBOX[(s1 >>> 16) & 0xFF] << 16) | (SBOX[(s2 >>> 8) & 0xFF] << 8) | SBOX[s3 & 0xFF];
+          const t1 = (SBOX[(s1 >>> 24) & 0xFF] << 24) | (SBOX[(s2 >>> 16) & 0xFF] << 16) | (SBOX[(s3 >>> 8) & 0xFF] << 8) | SBOX[s0 & 0xFF];
+          const t2 = (SBOX[(s2 >>> 24) & 0xFF] << 24) | (SBOX[(s3 >>> 16) & 0xFF] << 16) | (SBOX[(s0 >>> 8) & 0xFF] << 8) | SBOX[s1 & 0xFF];
+          const t3 = (SBOX[(s3 >>> 24) & 0xFF] << 24) | (SBOX[(s0 >>> 16) & 0xFF] << 16) | (SBOX[(s1 >>> 8) & 0xFF] << 8) | SBOX[s2 & 0xFF];
+
+          s0 = (t0 ^ w[56]) >>> 0;
+          s1 = (t1 ^ w[57]) >>> 0;
+          s2 = (t2 ^ w[58]) >>> 0;
+          s3 = (t3 ^ w[59]) >>> 0;
+
+          out[outOff] = (s0 >>> 24) & 0xFF; out[outOff + 1] = (s0 >>> 16) & 0xFF; out[outOff + 2] = (s0 >>> 8) & 0xFF; out[outOff + 3] = s0 & 0xFF;
+          out[outOff + 4] = (s1 >>> 24) & 0xFF; out[outOff + 5] = (s1 >>> 16) & 0xFF; out[outOff + 6] = (s1 >>> 8) & 0xFF; out[outOff + 7] = s1 & 0xFF;
+          out[outOff + 8] = (s2 >>> 24) & 0xFF; out[outOff + 9] = (s2 >>> 16) & 0xFF; out[outOff + 10] = (s2 >>> 8) & 0xFF; out[outOff + 11] = s2 & 0xFF;
+          out[outOff + 12] = (s3 >>> 24) & 0xFF; out[outOff + 13] = (s3 >>> 16) & 0xFF; out[outOff + 14] = (s3 >>> 8) & 0xFF; out[outOff + 15] = s3 & 0xFF;
+        }
+
+        function ghashMultiply(x, y) {
+          let z0 = 0, z1 = 0, z2 = 0, z3 = 0;
+          let v0 = (y[0] << 24) | (y[1] << 16) | (y[2] << 8) | y[3];
+          let v1 = (y[4] << 24) | (y[5] << 16) | (y[6] << 8) | y[7];
+          let v2 = (y[8] << 24) | (y[9] << 16) | (y[10] << 8) | y[11];
+          let v3 = (y[12] << 24) | (y[13] << 16) | (y[14] << 8) | y[15];
+
+          for (let i = 0; i < 16; i++) {
+            const byte = x[i];
+            for (let j = 7; j >= 0; j--) {
+              if ((byte >>> j) & 1) {
+                z0 ^= v0; z1 ^= v1; z2 ^= v2; z3 ^= v3;
+              }
+              const lsb = v3 & 1;
+              v3 = (v3 >>> 1) | ((v2 & 1) << 31);
+              v2 = (v2 >>> 1) | ((v1 & 1) << 31);
+              v1 = (v1 >>> 1) | ((v0 & 1) << 31);
+              v0 = (v0 >>> 1);
+              if (lsb) {
+                v0 ^= 0xe1000000;
+              }
+            }
+          }
+
+          const out = new Uint8Array(16);
+          out[0] = (z0 >>> 24) & 0xFF; out[1] = (z0 >>> 16) & 0xFF; out[2] = (z0 >>> 8) & 0xFF; out[3] = z0 & 0xFF;
+          out[4] = (z1 >>> 24) & 0xFF; out[5] = (z1 >>> 16) & 0xFF; out[6] = (z1 >>> 8) & 0xFF; out[7] = z1 & 0xFF;
+          out[8] = (z2 >>> 24) & 0xFF; out[9] = (z2 >>> 16) & 0xFF; out[10] = (z2 >>> 8) & 0xFF; out[11] = z2 & 0xFF;
+          out[12] = (z3 >>> 24) & 0xFF; out[13] = (z3 >>> 16) & 0xFF; out[14] = (z3 >>> 8) & 0xFF; out[15] = z3 & 0xFF;
+          return out;
+        }
+
+        function sha256Block(state, W) {
+          let a = state[0], b = state[1], c = state[2], d = state[3];
+          let e = state[4], f = state[5], g = state[6], h = state[7];
+
+          for (let t = 0; t < 64; t++) {
+            const S1 = ((e >>> 6) | (e << 26)) ^ ((e >>> 11) | (e << 21)) ^ ((e >>> 25) | (e << 7));
+            const ch = (e & f) ^ (~e & g);
+            const temp1 = (h + S1 + ch + K[t] + W[t]) >>> 0;
+            const S0 = ((a >>> 2) | (a << 30)) ^ ((a >>> 13) | (a << 19)) ^ ((a >>> 22) | (a << 10));
+            const maj = (a & b) ^ (a & c) ^ (b & c);
+            const temp2 = (S0 + maj) >>> 0;
+
+            h = g; g = f; f = e; e = (d + temp1) >>> 0;
+            d = c; c = b; b = a; a = (temp1 + temp2) >>> 0;
+          }
+
+          state[0] = (state[0] + a) >>> 0;
+          state[1] = (state[1] + b) >>> 0;
+          state[2] = (state[2] + c) >>> 0;
+          state[3] = (state[3] + d) >>> 0;
+          state[4] = (state[4] + e) >>> 0;
+          state[5] = (state[5] + f) >>> 0;
+          state[6] = (state[6] + g) >>> 0;
+          state[7] = (state[7] + h) >>> 0;
+        }
+
+        function sha256(data) {
+          let H0 = 0x6a09e667, H1 = 0xbb67ae85, H2 = 0x3c6ef372, H3 = 0xa54ff53a;
+          let H4 = 0x510e527f, H5 = 0x9b05688c, H6 = 0x1f83d9ab, H7 = 0x5be0cd19;
+
+          const len = data.length;
+          const padLen = (((len + 8) >> 6) + 1) << 6;
+          const words = new Uint32Array(padLen >> 2);
+          for (let i = 0; i < len; i++) {
+            words[i >> 2] |= data[i] << (24 - (i & 3) * 8);
+          }
+          words[len >> 2] |= 0x80 << (24 - (len & 3) * 8);
+          words[words.length - 1] = (len * 8) >>> 0;
+          words[words.length - 2] = Math.floor((len * 8) / 0x100000000);
+
+          const W = new Uint32Array(64);
+          const state = new Uint32Array(8);
+
+          for (let i = 0; i < words.length; i += 16) {
+            for (let t = 0; t < 16; t++) W[t] = words[i + t];
+            for (let t = 16; t < 64; t++) {
+              const s0 = ((W[t - 15] >>> 7) | (W[t - 15] << 25)) ^ ((W[t - 15] >>> 18) | (W[t - 15] << 14)) ^ (W[t - 15] >>> 3);
+              const s1 = ((W[t - 2] >>> 17) | (W[t - 2] << 15)) ^ ((W[t - 2] >>> 19) | (W[t - 2] << 13)) ^ (W[t - 2] >>> 10);
+              W[t] = (W[t - 16] + s0 + W[t - 7] + s1) >>> 0;
+            }
+            state[0] = H0; state[1] = H1; state[2] = H2; state[3] = H3;
+            state[4] = H4; state[5] = H5; state[6] = H6; state[7] = H7;
+            sha256Block(state, W);
+            H0 = state[0]; H1 = state[1]; H2 = state[2]; H3 = state[3];
+            H4 = state[4]; H5 = state[5]; H6 = state[6]; H7 = state[7];
+          }
+
+          const out = new Uint8Array(32);
+          const outH = [H0, H1, H2, H3, H4, H5, H6, H7];
+          for (let i = 0; i < 8; i++) {
+            out[i * 4] = (outH[i] >>> 24) & 0xFF;
+            out[i * 4 + 1] = (outH[i] >>> 16) & 0xFF;
+            out[i * 4 + 2] = (outH[i] >>> 8) & 0xFF;
+            out[i * 4 + 3] = outH[i] & 0xFF;
+          }
+          return out;
+        }
+
+        function fastPbkdf2Sha256(passwordStr, saltBytes, iterations = 100000, keyLen = 32) {
+          const enc = new TextEncoder();
+          let key = enc.encode(passwordStr);
+          if (key.length > 64) key = sha256(key);
+
+          const kPad = new Uint8Array(64);
+          kPad.set(key, 0);
+
+          const iKeyPad = new Uint32Array(16);
+          const oKeyPad = new Uint32Array(16);
+          for (let i = 0; i < 16; i++) {
+            const kWord = (kPad[i * 4] << 24) | (kPad[i * 4 + 1] << 16) | (kPad[i * 4 + 2] << 8) | kPad[i * 4 + 3];
+            iKeyPad[i] = (kWord ^ 0x36363636) >>> 0;
+            oKeyPad[i] = (kWord ^ 0x5c5c5c5c) >>> 0;
+          }
+
+          const iState0 = new Uint32Array([0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]);
+          const oState0 = new Uint32Array([0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]);
+
+          const Winit = new Uint32Array(64);
+          for (let i = 0; i < 16; i++) Winit[i] = iKeyPad[i];
+          for (let t = 16; t < 64; t++) {
+            const s0 = ((Winit[t - 15] >>> 7) | (Winit[t - 15] << 25)) ^ ((Winit[t - 15] >>> 18) | (Winit[t - 15] << 14)) ^ (Winit[t - 15] >>> 3);
+            const s1 = ((Winit[t - 2] >>> 17) | (Winit[t - 2] << 15)) ^ ((Winit[t - 2] >>> 19) | (Winit[t - 2] << 13)) ^ (Winit[t - 2] >>> 10);
+            Winit[t] = (Winit[t - 16] + s0 + Winit[t - 7] + s1) >>> 0;
+          }
+          sha256Block(iState0, Winit);
+
+          for (let i = 0; i < 16; i++) Winit[i] = oKeyPad[i];
+          for (let t = 16; t < 64; t++) {
+            const s0 = ((Winit[t - 15] >>> 7) | (Winit[t - 15] << 25)) ^ ((Winit[t - 15] >>> 18) | (Winit[t - 15] << 14)) ^ (Winit[t - 15] >>> 3);
+            const s1 = ((Winit[t - 2] >>> 17) | (Winit[t - 2] << 15)) ^ ((Winit[t - 2] >>> 19) | (Winit[t - 2] << 13)) ^ (Winit[t - 2] >>> 10);
+            Winit[t] = (Winit[t - 16] + s0 + Winit[t - 7] + s1) >>> 0;
+          }
+          sha256Block(oState0, Winit);
+
+          const Win = new Uint32Array(64);
+          Win[8] = 0x80000000;
+          Win[15] = 768;
+
+          const Wout = new Uint32Array(64);
+          Wout[8] = 0x80000000;
+          Wout[15] = 768;
+
+          const innerState = new Uint32Array(8);
+          const outerState = new Uint32Array(8);
+
+          function hmac32(uWords) {
+            for (let i = 0; i < 8; i++) Win[i] = uWords[i];
+            for (let t = 16; t < 64; t++) {
+              const s0 = ((Win[t - 15] >>> 7) | (Win[t - 15] << 25)) ^ ((Win[t - 15] >>> 18) | (Win[t - 15] << 14)) ^ (Win[t - 15] >>> 3);
+              const s1 = ((Win[t - 2] >>> 17) | (Win[t - 2] << 15)) ^ ((Win[t - 2] >>> 19) | (Win[t - 2] << 13)) ^ (Win[t - 2] >>> 10);
+              Win[t] = (Win[t - 16] + s0 + Win[t - 7] + s1) >>> 0;
+            }
+            for (let i = 0; i < 8; i++) innerState[i] = iState0[i];
+            sha256Block(innerState, Win);
+
+            for (let i = 0; i < 8; i++) Wout[i] = innerState[i];
+            for (let t = 16; t < 64; t++) {
+              const s0 = ((Wout[t - 15] >>> 7) | (Wout[t - 15] << 25)) ^ ((Wout[t - 15] >>> 18) | (Wout[t - 15] << 14)) ^ (Wout[t - 15] >>> 3);
+              const s1 = ((Wout[t - 2] >>> 17) | (Wout[t - 2] << 15)) ^ ((Wout[t - 2] >>> 19) | (Wout[t - 2] << 13)) ^ (Wout[t - 2] >>> 10);
+              Wout[t] = (Wout[t - 16] + s0 + Wout[t - 7] + s1) >>> 0;
+            }
+            for (let i = 0; i < 8; i++) outerState[i] = oState0[i];
+            sha256Block(outerState, Wout);
+            for (let i = 0; i < 8; i++) uWords[i] = outerState[i];
+          }
+
+          const numBlocks = Math.ceil(keyLen / 32);
+          const outWords = new Uint32Array(numBlocks * 8);
+
+          for (let blockIndex = 1; blockIndex <= numBlocks; blockIndex++) {
+            const sLen = saltBytes.length;
+            const msg = new Uint8Array(sLen + 4);
+            msg.set(saltBytes, 0);
+            msg[sLen] = (blockIndex >>> 24) & 0xFF;
+            msg[sLen + 1] = (blockIndex >>> 16) & 0xFF;
+            msg[sLen + 2] = (blockIndex >>> 8) & 0xFF;
+            msg[sLen + 3] = blockIndex & 0xFF;
+
+            const padLen = (((msg.length + 8) >> 6) + 1) << 6;
+            const mWords = new Uint32Array(padLen >> 2);
+            for (let i = 0; i < msg.length; i++) mWords[i >> 2] |= msg[i] << (24 - (i & 3) * 8);
+            mWords[msg.length >> 2] |= 0x80 << (24 - (msg.length & 3) * 8);
+            mWords[mWords.length - 1] = ((64 + msg.length) * 8) >>> 0;
+            mWords[mWords.length - 2] = Math.floor(((64 + msg.length) * 8) / 0x100000000);
+
+            for (let i = 0; i < 8; i++) innerState[i] = iState0[i];
+            const Wblock = new Uint32Array(64);
+            for (let i = 0; i < mWords.length; i += 16) {
+              for (let t = 0; t < 16; t++) Wblock[t] = mWords[i + t];
+              for (let t = 16; t < 64; t++) {
+                const s0 = ((Wblock[t - 15] >>> 7) | (Wblock[t - 15] << 25)) ^ ((Wblock[t - 15] >>> 18) | (Wblock[t - 15] << 14)) ^ (Wblock[t - 15] >>> 3);
+                const s1 = ((Wblock[t - 2] >>> 17) | (Wblock[t - 2] << 15)) ^ ((Wblock[t - 2] >>> 19) | (Wblock[t - 2] << 13)) ^ (Wblock[t - 2] >>> 10);
+                Wblock[t] = (Wblock[t - 16] + s0 + Wblock[t - 7] + s1) >>> 0;
+              }
+              sha256Block(innerState, Wblock);
+            }
+
+            for (let i = 0; i < 8; i++) Wout[i] = innerState[i];
+            for (let t = 16; t < 64; t++) {
+              const s0 = ((Wout[t - 15] >>> 7) | (Wout[t - 15] << 25)) ^ ((Wout[t - 15] >>> 18) | (Wout[t - 15] << 14)) ^ (Wout[t - 15] >>> 3);
+              const s1 = ((Wout[t - 2] >>> 17) | (Wout[t - 2] << 15)) ^ ((Wout[t - 2] >>> 19) | (Wout[t - 2] << 13)) ^ (Wout[t - 2] >>> 10);
+              Wout[t] = (Wout[t - 16] + s0 + Wout[t - 7] + s1) >>> 0;
+            }
+            for (let i = 0; i < 8; i++) outerState[i] = oState0[i];
+            sha256Block(outerState, Wout);
+
+            const uWords = new Uint32Array(8);
+            const tWords = new Uint32Array(8);
+            for (let i = 0; i < 8; i++) {
+              uWords[i] = outerState[i];
+              tWords[i] = outerState[i];
+            }
+
+            for (let c = 1; c < iterations; c++) {
+              hmac32(uWords);
+              tWords[0] ^= uWords[0]; tWords[1] ^= uWords[1]; tWords[2] ^= uWords[2]; tWords[3] ^= uWords[3];
+              tWords[4] ^= uWords[4]; tWords[5] ^= uWords[5]; tWords[6] ^= uWords[6]; tWords[7] ^= uWords[7];
+            }
+
+            const bOff = (blockIndex - 1) * 8;
+            for (let i = 0; i < 8; i++) outWords[bOff + i] = tWords[i];
+          }
+
+          const outBytes = new Uint8Array(keyLen);
+          for (let i = 0; i < keyLen; i++) {
+            outBytes[i] = (outWords[i >> 2] >>> (24 - (i & 3) * 8)) & 0xFF;
+          }
+          return outBytes;
+        }
+
+        function encryptGCM(keyBytes, ivBytes, plaintextBytes, aadBytes = new Uint8Array(0)) {
+          const w = keyExpansion256(keyBytes);
+          const H = new Uint8Array(16);
+          aesEncryptBlock(w, new Uint8Array(16), H);
+
+          const J0 = new Uint8Array(16);
+          J0.set(ivBytes, 0);
+          J0[15] = 1;
+
+          const cb = new Uint8Array(J0);
+          function inc32(block) {
+            let c = 1;
+            for (let i = 15; i >= 12; i--) {
+              const sum = block[i] + c;
+              block[i] = sum & 0xFF;
+              c = sum >>> 8;
+            }
+          }
+
+          const ciphertext = new Uint8Array(plaintextBytes.length);
+          const keystream = new Uint8Array(16);
+
+          for (let i = 0; i < plaintextBytes.length; i += 16) {
+            inc32(cb);
+            aesEncryptBlock(w, cb, keystream);
+            const blockLen = Math.min(16, plaintextBytes.length - i);
+            for (let k = 0; k < blockLen; k++) {
+              ciphertext[i + k] = plaintextBytes[i + k] ^ keystream[k];
+            }
+          }
+
+          let S = new Uint8Array(16);
+          if (aadBytes.length > 0) {
+            const padAad = (16 - (aadBytes.length % 16)) % 16;
+            const fullAad = new Uint8Array(aadBytes.length + padAad);
+            fullAad.set(aadBytes, 0);
+            for (let i = 0; i < fullAad.length; i += 16) {
+              for (let k = 0; k < 16; k++) S[k] ^= fullAad[i + k];
+              S = ghashMultiply(S, H);
+            }
+          }
+
+          const padCt = (16 - (ciphertext.length % 16)) % 16;
+          const fullCt = new Uint8Array(ciphertext.length + padCt);
+          fullCt.set(ciphertext, 0);
+          for (let i = 0; i < fullCt.length; i += 16) {
+            for (let k = 0; k < 16; k++) S[k] ^= fullCt[i + k];
+            S = ghashMultiply(S, H);
+          }
+
+          const lenBlock = new Uint8Array(16);
+          const lv = new DataView(lenBlock.buffer);
+          lv.setUint32(4, aadBytes.length * 8, false);
+          lv.setUint32(12, ciphertext.length * 8, false);
+          for (let k = 0; k < 16; k++) S[k] ^= lenBlock[k];
+          S = ghashMultiply(S, H);
+
+          const tagStream = new Uint8Array(16);
+          aesEncryptBlock(w, J0, tagStream);
+          const tag = new Uint8Array(16);
+          for (let k = 0; k < 16; k++) tag[k] = S[k] ^ tagStream[k];
+
+          const outWithTag = new Uint8Array(ciphertext.length + 16);
+          outWithTag.set(ciphertext, 0);
+          outWithTag.set(tag, ciphertext.length);
+          return outWithTag;
+        }
+
+        function decryptGCM(keyBytes, ivBytes, ciphertextWithTag, aadBytes = new Uint8Array(0)) {
+          if (ciphertextWithTag.length < 16) {
+            throw new Error('Incorrect password. Unable to decrypt this message.');
+          }
+          const tag = ciphertextWithTag.slice(ciphertextWithTag.length - 16);
+          const ciphertext = ciphertextWithTag.slice(0, ciphertextWithTag.length - 16);
+
+          const w = keyExpansion256(keyBytes);
+          const H = new Uint8Array(16);
+          aesEncryptBlock(w, new Uint8Array(16), H);
+
+          const J0 = new Uint8Array(16);
+          J0.set(ivBytes, 0);
+          J0[15] = 1;
+
+          let S = new Uint8Array(16);
+          if (aadBytes.length > 0) {
+            const padAad = (16 - (aadBytes.length % 16)) % 16;
+            const fullAad = new Uint8Array(aadBytes.length + padAad);
+            fullAad.set(aadBytes, 0);
+            for (let i = 0; i < fullAad.length; i += 16) {
+              for (let k = 0; k < 16; k++) S[k] ^= fullAad[i + k];
+              S = ghashMultiply(S, H);
+            }
+          }
+
+          const padCt = (16 - (ciphertext.length % 16)) % 16;
+          const fullCt = new Uint8Array(ciphertext.length + padCt);
+          fullCt.set(ciphertext, 0);
+          for (let i = 0; i < fullCt.length; i += 16) {
+            for (let k = 0; k < 16; k++) S[k] ^= fullCt[i + k];
+            S = ghashMultiply(S, H);
+          }
+
+          const lenBlock = new Uint8Array(16);
+          const lv = new DataView(lenBlock.buffer);
+          lv.setUint32(4, aadBytes.length * 8, false);
+          lv.setUint32(12, ciphertext.length * 8, false);
+          for (let k = 0; k < 16; k++) S[k] ^= lenBlock[k];
+          S = ghashMultiply(S, H);
+
+          const tagStream = new Uint8Array(16);
+          aesEncryptBlock(w, J0, tagStream);
+          const expectedTag = new Uint8Array(16);
+          for (let k = 0; k < 16; k++) expectedTag[k] = S[k] ^ tagStream[k];
+
+          let diff = 0;
+          for (let k = 0; k < 16; k++) diff |= (tag[k] ^ expectedTag[k]);
+          if (diff !== 0) {
+            throw new Error('Incorrect password. Unable to decrypt this message.');
+          }
+
+          const cb = new Uint8Array(J0);
+          function inc32(block) {
+            let c = 1;
+            for (let i = 15; i >= 12; i--) {
+              const sum = block[i] + c;
+              block[i] = sum & 0xFF;
+              c = sum >>> 8;
+            }
+          }
+
+          const plaintext = new Uint8Array(ciphertext.length);
+          const keystream = new Uint8Array(16);
+          for (let i = 0; i < ciphertext.length; i += 16) {
+            inc32(cb);
+            aesEncryptBlock(w, cb, keystream);
+            const blockLen = Math.min(16, ciphertext.length - i);
+            for (let k = 0; k < blockLen; k++) {
+              plaintext[i + k] = ciphertext[i + k] ^ keystream[k];
+            }
+          }
+          return plaintext;
+        }
+
+        return {
+          pbkdf2Sha256: fastPbkdf2Sha256,
+          encryptGCM: encryptGCM,
+          decryptGCM: decryptGCM,
+          sha256: sha256
+        };
+      })();
+
+      
+
+      async function deriveAES256Key(password, saltBytes) {
+        if (!window.crypto || !window.crypto.subtle) return null;
+        try {
+          const enc = new TextEncoder();
+          const keyMaterial = await window.crypto.subtle.importKey(
+            'raw', enc.encode(password), { name: 'PBKDF2' }, false, ['deriveKey']
+          );
+          return await window.crypto.subtle.deriveKey(
+            { name: 'PBKDF2', salt: saltBytes, iterations: PBKDF2_ITERATIONS, hash: 'SHA-256' },
+            keyMaterial, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']
+          );
+        } catch {
+          return null;
+        }
+      }
+
+      async function encryptBytesAESGCM(plainBytes, password) {
+        const salt = (window.crypto && window.crypto.getRandomValues)
+          ? window.crypto.getRandomValues(new Uint8Array(SALT_LENGTH))
+          : new Uint8Array(SALT_LENGTH).map(() => Math.floor(Math.random() * 256));
+        const nonce = (window.crypto && window.crypto.getRandomValues)
+          ? window.crypto.getRandomValues(new Uint8Array(NONCE_LENGTH))
+          : new Uint8Array(NONCE_LENGTH).map(() => Math.floor(Math.random() * 256));
+
+        if (window.crypto && window.crypto.subtle) {
+          try {
+            const key = await deriveAES256Key(password, salt);
+            if (key) {
+              const cipherBuffer = await window.crypto.subtle.encrypt(
+                { name: 'AES-GCM', iv: nonce, tagLength: 128 }, key, plainBytes
+              );
+              return { ciphertext: new Uint8Array(cipherBuffer), salt, nonce };
+            }
+          } catch (e) {}
+        }
+
+        const keyBytes = PureCrypto.pbkdf2Sha256(password, salt, PBKDF2_ITERATIONS, 32);
+        const ciphertext = PureCrypto.encryptGCM(keyBytes, nonce, plainBytes);
+        return { ciphertext, salt, nonce };
+      }
+
+      async function decryptBytesAESGCM(cipherBytes, password, salt, nonce) {
+        if (window.crypto && window.crypto.subtle) {
+          try {
+            const key = await deriveAES256Key(password, salt);
+            if (key) {
+              const plainBuffer = await window.crypto.subtle.decrypt(
+                { name: 'AES-GCM', iv: nonce, tagLength: 128 }, key, cipherBytes
+              );
+              return new Uint8Array(plainBuffer);
+            }
+          } catch (err) {
+            if (err.name === 'OperationError' || (err.message && err.message.indexOf('operation failed') !== -1)) {
+              throw new Error('Incorrect password. Unable to decrypt this acoustic payload.');
+            }
+          }
+        }
+        try {
+          const keyBytes = PureCrypto.pbkdf2Sha256(password, salt, PBKDF2_ITERATIONS, 32);
+          return PureCrypto.decryptGCM(keyBytes, nonce, cipherBytes);
+        } catch {
+          throw new Error('Incorrect password. Unable to decrypt this acoustic payload.');
+        }
+      }
+
+      // =====================================================================
+      // 3. AUDIOVAULT v1 BINARY FRAME SERIALIZER & PARSER
+      // =====================================================================
+      const MAGIC_SIGNATURE = 'AUDIOVAULT';
+      const FORMAT_VERSION = 1;
+
+      function serializeAudioPacket(options) {
+        const enc = new TextEncoder();
+        const magicBytes = enc.encode(MAGIC_SIGNATURE); // 10 bytes
+        const metaBytes = enc.encode(JSON.stringify(options.metadata || { mode: 'text', timestamp: Date.now() }));
+        const saltBytes = (options.encrypted && options.salt) ? options.salt : new Uint8Array(0);
+        const nonceBytes = (options.encrypted && options.nonce) ? options.nonce : new Uint8Array(0);
+
+        const flags = (options.encrypted ? 0x01 : 0x00) | (options.isFile ? 0x02 : 0x00);
+        const crc = computeCRC32(options.payloadBytes);
+
+        const headerLen = 10 + 1 + 1 + 1 + saltBytes.length + 1 + nonceBytes.length + 2 + metaBytes.length + 4 + 4;
+        const totalLen = headerLen + options.payloadBytes.length;
+        const packet = new Uint8Array(totalLen);
+        const view = new DataView(packet.buffer);
+
+        let offset = 0;
+        packet.set(magicBytes, offset); offset += 10;
+        packet[offset++] = FORMAT_VERSION;
+        packet[offset++] = flags;
+        packet[offset++] = saltBytes.length;
+        if (saltBytes.length > 0) { packet.set(saltBytes, offset); offset += saltBytes.length; }
+        packet[offset++] = nonceBytes.length;
+        if (nonceBytes.length > 0) { packet.set(nonceBytes, offset); offset += nonceBytes.length; }
+        view.setUint16(offset, metaBytes.length, false); offset += 2;
+        packet.set(metaBytes, offset); offset += metaBytes.length;
+        view.setUint32(offset, options.payloadBytes.length, false); offset += 4;
+        view.setUint32(offset, crc, false); offset += 4;
+        packet.set(options.payloadBytes, offset);
+
+        return { packet, crc, headerLen, totalLen };
+      }
+
+      function parseAudioWithExtractor(extractFn, maxAvailableBytes, engineLabel) {
+        if (maxAvailableBytes < 26) {
+          throw new Error('No hidden AUDIOVAULT payload detected in this audio.');
+        }
+        const dec = new TextDecoder('utf-8', { fatal: false });
+        const prefix = extractFn(13);
+        const magic = dec.decode(prefix.slice(0, 10));
+        if (magic !== MAGIC_SIGNATURE) {
+          throw new Error('No hidden AUDIOVAULT payload detected in this audio.');
+        }
+        const version = prefix[10];
+        if (version !== FORMAT_VERSION) {
+          throw new Error('Unsupported AUDIOVAULT version (v' + version + ').');
+        }
+        const flags = prefix[11];
+        const encrypted = (flags & 0x01) !== 0;
+        const isFile = (flags & 0x02) !== 0;
+        const saltLen = prefix[12];
+        if (saltLen > 64) throw new Error('Corrupted header: invalid salt length.');
+
+        const step2Len = 13 + saltLen + 1;
+        const buf2 = extractFn(step2Len);
+        const salt = buf2.slice(13, 13 + saltLen);
+        const nonceLen = buf2[13 + saltLen];
+        if (nonceLen > 64) throw new Error('Corrupted header: invalid nonce length.');
+
+        const step3Len = step2Len + nonceLen + 2;
+        const buf3 = extractFn(step3Len);
+        const nonce = buf3.slice(step2Len, step2Len + nonceLen);
+        const view3 = new DataView(buf3.buffer, buf3.byteOffset, buf3.byteLength);
+        const metaLen = view3.getUint16(step2Len + nonceLen, false);
+        if (metaLen > 4096) throw new Error('Corrupted header: invalid metadata length.');
+
+        const headerLen = step3Len + metaLen + 8;
+        if (headerLen > maxAvailableBytes) throw new Error('Corrupted payload: header exceeds audio capacity.');
+
+        const headerBuf = extractFn(headerLen);
+        let metadata = { mode: isFile ? 'file' : 'text', timestamp: Date.now() };
+        try {
+          metadata = JSON.parse(dec.decode(headerBuf.slice(step3Len, step3Len + metaLen)));
+        } catch {
+          throw new Error('Corrupted payload: damaged metadata JSON.');
+        }
+
+        const viewH = new DataView(headerBuf.buffer, headerBuf.byteOffset, headerBuf.byteLength);
+        const payloadLen = viewH.getUint32(step3Len + metaLen, false);
+        const expectedCrc = viewH.getUint32(step3Len + metaLen + 4, false);
+        const totalLen = headerLen + payloadLen;
+
+        if (payloadLen === 0 || totalLen > maxAvailableBytes) {
+          throw new Error('Corrupted payload: declared size exceeds audio sample bounds.');
+        }
+
+        const fullPacket = extractFn(totalLen);
+        const payloadBytes = fullPacket.slice(headerLen, totalLen);
+        const actualCrc = computeCRC32(payloadBytes);
+
+        if (actualCrc !== expectedCrc) {
+          throw new Error('Corrupted payload: CRC32 checksum mismatch. Audio samples may have been clipped or re-encoded.');
+        }
+
+        return {
+          header: {
+            magic, version, encrypted, isFile, salt, nonce, metadata,
+            payloadLength: payloadLen, crc32: expectedCrc, headerLength: headerLen,
+            totalLength: totalLen, engineLabel: engineLabel || '16-Bit PCM LSB'
+          },
+          payloadBytes
+        };
+      }
+
+      // =====================================================================
+      // 4. 16-BIT PCM WAV CODEC, LSB EMBEDDER & GOERTZEL FSK SONIC MODEM
+      // =====================================================================
+      const FSK_SAMPLE_RATE = 44100;
+      const FSK_SAMPLES_PER_BIT = 441; // 10ms per bit
+      const FSK_AUDIBLE_F0 = 1800;
+      const FSK_AUDIBLE_F1 = 3000;
+      const FSK_ULTRA_F0 = 14500;
+      const FSK_ULTRA_F1 = 16500;
+
+      function encodeWav16Bit(samplesInt16, sampleRate) {
+        const sr = sampleRate || 44100;
+        const numSamples = samplesInt16.length;
+        const dataByteLen = numSamples * 2;
+        const buf = new ArrayBuffer(44 + dataByteLen);
+        const view = new DataView(buf);
+        function writeStr(off, s) {
+          for (let i = 0; i < s.length; i++) view.setUint8(off + i, s.charCodeAt(i));
+        }
+        writeStr(0, 'RIFF');
+        view.setUint32(4, 36 + dataByteLen, true);
+        writeStr(8, 'WAVE');
+        writeStr(12, 'fmt ');
+        view.setUint32(16, 16, true);
+        view.setUint16(20, 1, true);
+        view.setUint16(22, 1, true);
+        view.setUint32(24, sr, true);
+        view.setUint32(28, sr * 2, true);
+        view.setUint16(32, 2, true);
+        view.setUint16(34, 16, true);
+        writeStr(36, 'data');
+        view.setUint32(40, dataByteLen, true);
+        for (let i = 0; i < numSamples; i++) {
+          view.setInt16(44 + i * 2, samplesInt16[i], true);
+        }
+        return new Uint8Array(buf);
+      }
+
+      function parseWav16Bit(wavBytes) {
+        const view = new DataView(wavBytes.buffer, wavBytes.byteOffset, wavBytes.byteLength);
+        if (wavBytes.byteLength < 44) throw new Error('Invalid WAV file: too short.');
+        const riff = String.fromCharCode(view.getUint8(0), view.getUint8(1), view.getUint8(2), view.getUint8(3));
+        const wave = String.fromCharCode(view.getUint8(8), view.getUint8(9), view.getUint8(10), view.getUint8(11));
+        if (riff !== 'RIFF' || wave !== 'WAVE') throw new Error('Unsupported container: expected RIFF/WAVE.');
+
+        let offset = 12;
+        let channels = 1, sampleRate = 44100, bitsPerSample = 16, audioFormat = 1;
+        while (offset + 8 <= wavBytes.byteLength) {
+          const chunkId = String.fromCharCode(
+            view.getUint8(offset), view.getUint8(offset + 1),
+            view.getUint8(offset + 2), view.getUint8(offset + 3)
+          );
+          const chunkSize = view.getUint32(offset + 4, true);
+          if (chunkId === 'fmt ') {
+            audioFormat = view.getUint16(offset + 8, true);
+            channels = view.getUint16(offset + 10, true);
+            sampleRate = view.getUint32(offset + 12, true);
+            bitsPerSample = view.getUint16(offset + 22, true);
+          } else if (chunkId === 'data') {
+            const dataStart = offset + 8;
+            const dataLen = Math.min(chunkSize, wavBytes.byteLength - dataStart);
+            if (audioFormat === 1 && bitsPerSample === 16) {
+              const count = Math.floor(dataLen / (2 * channels));
+              const samples = new Int16Array(count);
+              for (let i = 0; i < count; i++) {
+                samples[i] = view.getInt16(dataStart + i * 2 * channels, true);
+              }
+              return { samples, sampleRate, channels };
+            }
+          }
+          offset += 8 + chunkSize + (chunkSize & 1);
+        }
+        throw new Error('Could not locate 16-bit PCM data chunk in WAV.');
+      }
+
+      function embedPcmLsb(sourceSamples, packetBytes) {
+        const totalBits = packetBytes.length * 8;
+        if (totalBits > sourceSamples.length) {
+          throw new Error('Message too large for this audio carrier. Use a longer audio file or shorter message.');
+        }
+        const out = new Int16Array(sourceSamples);
+        for (let b = 0; b < totalBits; b++) {
+          const byteVal = packetBytes[b >>> 3];
+          const bit = (byteVal >>> (7 - (b & 7))) & 1;
+          out[b] = (out[b] & ~1) | bit;
+        }
+        return out;
+      }
+
+      function extractPcmLsbBytes(samples, byteCount) {
+        const totalBits = byteCount * 8;
+        if (totalBits > samples.length) {
+          throw new Error('Declared payload length exceeds audio sample count.');
+        }
+        const out = new Uint8Array(byteCount);
+        for (let b = 0; b < totalBits; b++) {
+          const bit = samples[b] & 1;
+          out[b >>> 3] |= (bit << (7 - (b & 7)));
+        }
+        return out;
+      }
+
+      function synthesizeFskSamples(packetBytes, stealthUltrasonic) {
+        const f0 = stealthUltrasonic ? FSK_ULTRA_F0 : FSK_AUDIBLE_F0;
+        const f1 = stealthUltrasonic ? FSK_ULTRA_F1 : FSK_AUDIBLE_F1;
+        const full = new Uint8Array(2 + packetBytes.length);
+        full[0] = stealthUltrasonic ? 0xA5 : 0x5A;
+        full[1] = 0xC3;
+        full.set(packetBytes, 2);
+
+        const totalBits = full.length * 8;
+        const totalSamples = totalBits * FSK_SAMPLES_PER_BIT;
+        const samples = new Int16Array(totalSamples);
+
+        for (let b = 0; b < totalBits; b++) {
+          const byteVal = full[b >>> 3];
+          const bit = (byteVal >>> (7 - (b & 7))) & 1;
+          const freq = bit ? f1 : f0;
+          const baseIdx = b * FSK_SAMPLES_PER_BIT;
+          for (let n = 0; n < FSK_SAMPLES_PER_BIT; n++) {
+            let env = 1.0;
+            if (n < 24) env = 0.5 * (1 - Math.cos((Math.PI * n) / 24));
+            else if (n > FSK_SAMPLES_PER_BIT - 24) env = 0.5 * (1 - Math.cos((Math.PI * (FSK_SAMPLES_PER_BIT - n)) / 24));
+            samples[baseIdx + n] = Math.round(Math.sin((2 * Math.PI * freq * n) / FSK_SAMPLE_RATE) * env * 24000);
+          }
+        }
+        return samples;
+      }
+
+      function goertzelPower(samples, startIdx, length, targetFreq, sampleRate) {
+        const k = Math.round((length * targetFreq) / sampleRate);
+        const w = (2 * Math.PI * k) / length;
+        const coeff = 2 * Math.cos(w);
+        let q0 = 0, q1 = 0, q2 = 0;
+        for (let i = 0; i < length; i++) {
+          q0 = coeff * q1 - q2 + samples[startIdx + i];
+          q2 = q1;
+          q1 = q0;
+        }
+        return q1 * q1 + q2 * q2 - q1 * q2 * coeff;
+      }
+
+      function parseFromAudioSamples(samples) {
+        // 1. Try 16-Bit PCM LSB first
+        const maxPcmBytes = Math.floor(samples.length / 8);
+        try {
+          return parseAudioWithExtractor(function (n) {
+            return extractPcmLsbBytes(samples, n);
+          }, maxPcmBytes, '16-Bit PCM LSB');
+        } catch (pcmErr) {
+          // 2. Fallback: Check Sonic FSK Modem (Audible 1800/3000 Hz or Ultrasonic 14500/16500 Hz)
+          const maxFskBytes = Math.floor(samples.length / (8 * FSK_SAMPLES_PER_BIT)) - 2;
+          if (maxFskBytes >= 26) {
+            function readFskBytes(f0, f1, count) {
+              const totalBits = count * 8;
+              const out = new Uint8Array(count);
+              for (let b = 0; b < totalBits; b++) {
+                const start = b * FSK_SAMPLES_PER_BIT;
+                const p0 = goertzelPower(samples, start, FSK_SAMPLES_PER_BIT, f0, FSK_SAMPLE_RATE);
+                const p1 = goertzelPower(samples, start, FSK_SAMPLES_PER_BIT, f1, FSK_SAMPLE_RATE);
+                const bit = p1 > p0 ? 1 : 0;
+                out[b >>> 3] |= (bit << (7 - (b & 7)));
+              }
+              return out;
+            }
+            const preAud = readFskBytes(FSK_AUDIBLE_F0, FSK_AUDIBLE_F1, 2);
+            if (preAud[0] === 0x5A && preAud[1] === 0xC3) {
+              return parseAudioWithExtractor(function (n) {
+                return readFskBytes(FSK_AUDIBLE_F0, FSK_AUDIBLE_F1, 2 + n).slice(2);
+              }, maxFskBytes, 'Sonic FSK Modem (1.8/3.0 kHz)');
+            }
+            const preUltra = readFskBytes(FSK_ULTRA_F0, FSK_ULTRA_F1, 2);
+            if (preUltra[0] === 0xA5 && preUltra[1] === 0xC3) {
+              return parseAudioWithExtractor(function (n) {
+                return readFskBytes(FSK_ULTRA_F0, FSK_ULTRA_F1, 2 + n).slice(2);
+              }, maxFskBytes, 'Ultrasonic FSK (14.5/16.5 kHz)');
+            }
+          }
+          throw pcmErr;
+        }
+      }
+
+      function computeAudioMetrics(origSamples, encSamples) {
+        const len = Math.min(origSamples.length, encSamples.length);
+        let signalPower = 0;
+        let noisePower = 0;
+        let modifiedCount = 0;
+        let maxDelta = 0;
+        for (let i = 0; i < len; i++) {
+          const s = origSamples[i];
+          const d = Math.abs(s - encSamples[i]);
+          signalPower += s * s;
+          if (d !== 0) {
+            noisePower += d * d;
+            modifiedCount++;
+            if (d > maxDelta) maxDelta = d;
+          }
+        }
+        const snr = noisePower === 0 ? 99.99 : Number((10 * Math.log10(Math.max(1, signalPower) / noisePower)).toFixed(2));
+        return { snr, modifiedCount, maxDelta, totalSamples: encSamples.length };
+      }
+
+      // =====================================================================
+      // 5. SYNTHETIC CARRIER GENERATOR & WAVEFORM VISUALIZER
+      // =====================================================================
+      function generateSynthCarrierSamples(preset, durationSec, sampleRate) {
+        const sr = sampleRate || 44100;
+        const count = Math.floor(durationSec * sr);
+        const samples = new Int16Array(count);
+        const freqs = preset === 'sonar' ? [220, 440, 660, 880] : [261.63, 329.63, 392.00, 523.25];
+        for (let i = 0; i < count; i++) {
+          const t = i / sr;
+          let env = 1.0;
+          if (t < 0.15) env = t / 0.15;
+          else if (t > durationSec - 0.25) env = (durationSec - t) / 0.25;
+          let val = 0;
+          for (let f = 0; f < freqs.length; f++) {
+            const mod = preset === 'sonar' ? Math.sin(2 * Math.PI * 3.5 * t) * 0.25 : 0;
+            val += Math.sin(2 * Math.PI * freqs[f] * t + mod) * (0.22 / (f * 0.35 + 1));
+          }
+          samples[i] = Math.max(-32000, Math.min(32000, Math.round(val * env * 22000)));
+        }
+        return samples;
+      }
+
+      function drawWaveformCanvas(canvasId, samples, origSamplesForDiff) {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas || !samples || samples.length === 0) return;
+        const ctx = canvas.getContext('2d');
+        const W = canvas.width;
+        const H = canvas.height;
+        ctx.clearRect(0, 0, W, H);
+
+        // Center zero line
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.18)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, H / 2);
+        ctx.lineTo(W, H / 2);
+        ctx.stroke();
+
+        // Main waveform
+        ctx.strokeStyle = '#00F0FF';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        const step = Math.max(1, Math.floor(samples.length / W));
+        for (let x = 0; x < W; x++) {
+          const idx = Math.min(samples.length - 1, x * step);
+          const norm = samples[idx] / 32768;
+          const y = (H / 2) - norm * (H * 0.42);
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        // Optional 50x sample-delta overlay
+        if (origSamplesForDiff && origSamplesForDiff.length === samples.length) {
+          ctx.fillStyle = '#00FF88';
+          for (let x = 0; x < W; x++) {
+            const idx = Math.min(samples.length - 1, x * step);
+            if (samples[idx] !== origSamplesForDiff[idx]) {
+              ctx.fillRect(x, H - 10, 2, 6);
+            }
+          }
+        }
+      }
+
+      // =====================================================================
+      // 6. UI STATE & CONTROLLERS
+      // =====================================================================
+      const state = {
+        activePage: 'home',
+        carrier: null,       // { samples: Int16Array, sampleRate: 44100, name: string, blobUrl: string }
+        payloadMode: 'text', // 'text' | 'file'
+        secretFile: null,    // { name, size, mimeType, bytes: Uint8Array }
+        engineMode: 'pcm',   // 'pcm' | 'fsk-audible' | 'fsk-ultra'
+        encodedResult: null, // { samples, wavBytes, blobUrl, packetLength, crcHex, snr, modSamples, maxDelta }
+        detectedPacket: null,
+        revealedData: null
+      };
+
+      function formatBytes(bytes) {
+        if (bytes === 0) return '0 B';
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(2) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+      }
+
+      function showToast(message, type) {
+        const container = document.getElementById('toastContainer');
+        if (!container) return;
+        const toast = document.createElement('div');
+        const isErr = type === 'error';
+        const isWarn = type === 'warn';
+        toast.className = 'pointer-events-auto rounded-xl px-4 py-3 border shadow-xl backdrop-blur-xl text-xs font-mono flex items-center justify-between gap-3 ' +
+          (isErr ? 'bg-rose-950/90 border-rose-500/50 text-rose-100' :
+           isWarn ? 'bg-amber-950/90 border-amber-500/50 text-amber-100' :
+           'bg-[#081220]/95 border-[#00F0FF]/50 text-cyan-100');
+        const span = document.createElement('span');
+        span.textContent = message;
+        const closeBtn = document.createElement('button');
+        closeBtn.textContent = '×';
+        closeBtn.className = 'text-base font-bold opacity-70 hover:opacity-100';
+        closeBtn.addEventListener('click', function () { toast.remove(); });
+        toast.appendChild(span);
+        toast.appendChild(closeBtn);
+        container.appendChild(toast);
+        setTimeout(function () { if (toast.parentNode) toast.remove(); }, 4000);
+      }
+
+      function switchPage(pageId) {
+        state.activePage = pageId;
+        ['home', 'hide', 'reveal', 'specs'].forEach(function (id) {
+          const el = document.getElementById('page-' + id);
+          if (el) el.classList.toggle('hidden', id !== pageId);
+        });
+        document.querySelectorAll('.nav-tab-btn').forEach(function (btn) {
+          const active = btn.getAttribute('data-nav') === pageId;
+          btn.className = active
+            ? 'nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-cyan-300 bg-cyan-500/15 border border-cyan-500/30'
+            : 'nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white border border-transparent';
+        });
+        document.getElementById('mobileMenuPanel').classList.add('hidden');
+      }
+
+      document.querySelectorAll('[data-nav]').forEach(function (btn) {
+        btn.addEventListener('click', function () { switchPage(btn.getAttribute('data-nav')); });
+      });
+      document.getElementById('navBrandBtn').addEventListener('click', function () { switchPage('home'); });
+      document.getElementById('heroHideBtn').addEventListener('click', function () { switchPage('hide'); });
+      document.getElementById('heroRevealBtn').addEventListener('click', function () { switchPage('reveal'); });
+      document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+        document.getElementById('mobileMenuPanel').classList.toggle('hidden');
+      });
+
+      function loadBuiltInSynthCarrier(preset) {
+        const sr = 44100;
+        const samples = generateSynthCarrierSamples(preset, 5.0, sr);
+        const wavBytes = encodeWav16Bit(samples, sr);
+        const blob = new Blob([wavBytes], { type: 'audio/wav' });
+        if (state.carrier && state.carrier.blobUrl) URL.revokeObjectURL(state.carrier.blobUrl);
+        const blobUrl = URL.createObjectURL(blob);
+
+        state.carrier = {
+          samples: samples,
+          sampleRate: sr,
+          name: preset === 'sonar' ? 'cyber_pulse_carrier_44k.wav' : 'ambient_chord_44k.wav',
+          blobUrl: blobUrl
+        };
+
+        document.getElementById('carrierNameLabel').textContent = state.carrier.name;
+        document.getElementById('carrierSpecsLabel').textContent = sr.toLocaleString() + ' Hz • 16-Bit PCM (' + samples.length.toLocaleString() + ' samples)';
+        document.getElementById('carrierAudioPlayer').src = blobUrl;
+        drawWaveformCanvas('carrierWaveformCanvas', samples);
+        updateCapacityTelemetry();
+      }
+
+      document.getElementById('synthAmbientBtn').addEventListener('click', function () {
+        loadBuiltInSynthCarrier('ambient');
+        showToast('Synthesized 5.0s Ambient Chord carrier (44.1 kHz)!', 'success');
+      });
+      document.getElementById('synthSonarBtn').addEventListener('click', function () {
+        loadBuiltInSynthCarrier('sonar');
+        showToast('Synthesized 5.0s Cyber Pulse carrier (44.1 kHz)!', 'success');
+      });
+
+      // =====================================================================
+      // 6B. LIVE MICROPHONE VOICE RECORDER STUDIO (CAPTURE 44.1kHz 16-BIT PCM)
+      // =====================================================================
+      let liveMicStream = null;
+      let liveAudioCtx = null;
+      let liveScriptNode = null;
+      let liveAnalyser = null;
+      let liveRecordedChunks = [];
+      let liveRecStartTime = 0;
+      let liveRecTimerInterval = null;
+      let liveRecAnimFrame = null;
+      let isRecordingVoice = false;
+
+      function drawIdleMicCanvas() {
+        const c = document.getElementById('liveMicCanvas');
+        if (!c) return;
+        const ctx = c.getContext('2d');
+        ctx.clearRect(0, 0, c.width, c.height);
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.25)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(0, c.height / 2);
+        ctx.lineTo(c.width, c.height / 2);
+        ctx.stroke();
+      }
+      drawIdleMicCanvas();
+
+      function applyRecordedVoiceSamplesAsCarrier(samplesInt16, sampleRate, labelName) {
+        const sr = sampleRate || 44100;
+        const wavBytes = encodeWav16Bit(samplesInt16, sr);
+        const blob = new Blob([wavBytes], { type: 'audio/wav' });
+        if (state.carrier && state.carrier.blobUrl) URL.revokeObjectURL(state.carrier.blobUrl);
+        const blobUrl = URL.createObjectURL(blob);
+
+        state.carrier = {
+          samples: samplesInt16,
+          sampleRate: sr,
+          name: labelName || 'live_voice_recording.wav',
+          blobUrl: blobUrl
+        };
+
+        document.getElementById('carrierNameLabel').textContent = state.carrier.name;
+        document.getElementById('carrierSpecsLabel').textContent =
+          sr.toLocaleString() + ' Hz • 16-Bit PCM Voice (' + (samplesInt16.length / sr).toFixed(1) + 's)';
+        document.getElementById('carrierAudioPlayer').src = blobUrl;
+        drawWaveformCanvas('carrierWaveformCanvas', samplesInt16);
+        // Ensure 16-Bit PCM LSB mode is selected so secret text hides directly inside the voice recording
+        setEngineMode('pcm');
+        updateCapacityTelemetry();
+      }
+
+      async function startLiveVoiceRecording() {
+        if (isRecordingVoice) return;
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          showToast('Microphone API unavailable in this browser context. Using synthesized voice note instead!', 'warn');
+          generateSimulatedVoiceNote();
+          return;
+        }
+
+        try {
+          liveMicStream = await navigator.mediaDevices.getUserMedia({
+            audio: {
+              echoCancellation: false,
+              noiseSuppression: false,
+              autoGainControl: false
+            }
+          });
+
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          liveAudioCtx = new AudioCtx({ sampleRate: 44100 });
+          const source = liveAudioCtx.createMediaStreamSource(liveMicStream);
+
+          liveAnalyser = liveAudioCtx.createAnalyser();
+          liveAnalyser.fftSize = 512;
+          source.connect(liveAnalyser);
+
+          liveScriptNode = liveAudioCtx.createScriptProcessor(4096, 1, 1);
+          liveRecordedChunks = [];
+
+          liveScriptNode.onaudioprocess = function (e) {
+            if (!isRecordingVoice) return;
+            const input = e.inputBuffer.getChannelData(0);
+            const chunk = new Float32Array(input.length);
+            chunk.set(input);
+            liveRecordedChunks.push(chunk);
+          };
+
+          source.connect(liveScriptNode);
+          liveScriptNode.connect(liveAudioCtx.destination);
+
+          isRecordingVoice = true;
+          liveRecStartTime = Date.now();
+
+          // Update UI
+          document.getElementById('micPulseDot').className = 'w-3 h-3 rounded-full bg-rose-500 animate-ping';
+          document.getElementById('micStatusBadge').textContent = '🔴 RECORDING LIVE VOICE...';
+          document.getElementById('micStatusBadge').className = 'px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-rose-500/25 text-rose-200 border border-rose-500/50 animate-pulse';
+          document.getElementById('micStatusSubtext').textContent = 'Speak now! Click "Stop & Use Voice Recording" when finished.';
+
+          const startBtn = document.getElementById('startVoiceRecBtn');
+          const stopBtn = document.getElementById('stopVoiceRecBtn');
+          startBtn.disabled = true;
+          startBtn.className = 'px-4 py-2.5 rounded-xl font-mono text-xs font-bold bg-slate-800 text-slate-500 cursor-not-allowed flex items-center gap-2';
+          stopBtn.disabled = false;
+          stopBtn.className = 'px-4 py-2.5 rounded-xl font-mono text-xs font-bold bg-[#00FF88] hover:bg-emerald-400 text-slate-950 transition-all cursor-pointer emerald-glow';
+
+          if (liveRecTimerInterval) clearInterval(liveRecTimerInterval);
+          liveRecTimerInterval = setInterval(function () {
+            const elapsed = (Date.now() - liveRecStartTime) / 1000;
+            const mins = String(Math.floor(elapsed / 60)).padStart(2, '0');
+            const secs = (elapsed % 60).toFixed(1).padStart(4, '0');
+            document.getElementById('micTimerDisplay').textContent = mins + ':' + secs;
+          }, 100);
+
+          const timeDomainBuf = new Uint8Array(liveAnalyser.fftSize);
+          const micCanvas = document.getElementById('liveMicCanvas');
+          const micCtx = micCanvas.getContext('2d');
+
+          function renderLiveMicWave() {
+            if (!isRecordingVoice) return;
+            liveAnalyser.getByteTimeDomainData(timeDomainBuf);
+            const W = micCanvas.width;
+            const H = micCanvas.height;
+            micCtx.clearRect(0, 0, W, H);
+
+            let peak = 0;
+            micCtx.strokeStyle = '#00FF88';
+            micCtx.lineWidth = 2;
+            micCtx.beginPath();
+            for (let i = 0; i < timeDomainBuf.length; i++) {
+              const v = (timeDomainBuf[i] - 128) / 128;
+              const absV = Math.abs(v);
+              if (absV > peak) peak = absV;
+              const x = (i / (timeDomainBuf.length - 1)) * W;
+              const y = (H / 2) + v * (H * 0.44);
+              if (i === 0) micCtx.moveTo(x, y);
+              else micCtx.lineTo(x, y);
+            }
+            micCtx.stroke();
+
+            document.getElementById('micVolumeBar').style.width = Math.min(100, Math.round(peak * 180)) + '%';
+            liveRecAnimFrame = requestAnimationFrame(renderLiveMicWave);
+          }
+          liveRecAnimFrame = requestAnimationFrame(renderLiveMicWave);
+          showToast('Microphone active! Speak now to record your carrier audio.', 'success');
+        } catch (err) {
+          showToast('Microphone permission denied or unavailable. Generated simulated voice carrier instead!', 'warn');
+          generateSimulatedVoiceNote();
+        }
+      }
+
+      function stopLiveVoiceRecording() {
+        if (!isRecordingVoice) return;
+        isRecordingVoice = false;
+
+        if (liveRecTimerInterval) { clearInterval(liveRecTimerInterval); liveRecTimerInterval = null; }
+        if (liveRecAnimFrame) { cancelAnimationFrame(liveRecAnimFrame); liveRecAnimFrame = null; }
+
+        const sr = liveAudioCtx ? liveAudioCtx.sampleRate : 44100;
+        if (liveScriptNode) { liveScriptNode.disconnect(); liveScriptNode = null; }
+        if (liveAnalyser) { liveAnalyser.disconnect(); liveAnalyser = null; }
+        if (liveMicStream) {
+          liveMicStream.getTracks().forEach(function (t) { t.stop(); });
+          liveMicStream = null;
+        }
+        if (liveAudioCtx && liveAudioCtx.state !== 'closed') {
+          liveAudioCtx.close().catch(function () {});
+          liveAudioCtx = null;
+        }
+
+        // Reset Recorder UI
+        document.getElementById('micPulseDot').className = 'w-3 h-3 rounded-full bg-[#00FF88]';
+        document.getElementById('micStatusBadge').textContent = '✓ VOICE CARRIER CAPTURED';
+        document.getElementById('micStatusBadge').className = 'px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/20 text-[#00FF88] border border-emerald-500/40';
+        document.getElementById('micStatusSubtext').textContent = 'Voice recording loaded below! Enter your secret text in Step 2 and click Encode.';
+        document.getElementById('micVolumeBar').style.width = '0%';
+
+        const startBtn = document.getElementById('startVoiceRecBtn');
+        const stopBtn = document.getElementById('stopVoiceRecBtn');
+        startBtn.disabled = false;
+        startBtn.className = 'px-4 py-2.5 rounded-xl font-mono text-xs font-bold bg-rose-500 hover:bg-rose-400 text-white transition-all flex items-center gap-2 shadow-lg shadow-rose-500/25';
+        stopBtn.disabled = true;
+        stopBtn.className = 'px-4 py-2.5 rounded-xl font-mono text-xs font-bold bg-slate-800 text-slate-500 border border-white/10 transition-all cursor-not-allowed';
+
+        const totalLen = liveRecordedChunks.reduce(function (acc, c) { return acc + c.length; }, 0);
+        if (totalLen < 2048) {
+          showToast('Recording was too short. Generated a 4-second voice carrier instead.', 'warn');
+          generateSimulatedVoiceNote();
+          return;
+        }
+
+        const pcm16 = new Int16Array(totalLen);
+        let offset = 0;
+        for (let i = 0; i < liveRecordedChunks.length; i++) {
+          const ch = liveRecordedChunks[i];
+          for (let k = 0; k < ch.length; k++) {
+            const s = Math.max(-1, Math.min(1, ch[k]));
+            pcm16[offset++] = s < 0 ? Math.round(s * 32768) : Math.round(s * 32767);
+          }
+        }
+
+        applyRecordedVoiceSamplesAsCarrier(pcm16, sr, 'live_voice_recording.wav');
+        showToast('Captured ' + (totalLen / sr).toFixed(1) + 's live voice recording as carrier!', 'success');
+      }
+
+      // Synthesize a realistic human-like formant speech cadence note (4.0s) for instant testing or fallback
+      function generateSimulatedVoiceNote() {
+        const sr = 44100;
+        const duration = 4.0;
+        const total = Math.floor(sr * duration);
+        const samples = new Int16Array(total);
+        for (let i = 0; i < total; i++) {
+          const t = i / sr;
+          // Speech syllable envelope (talking cadence ~4.5 syllables/sec)
+          const syllableEnv = Math.max(0, Math.sin(2 * Math.PI * 3.8 * t) * 0.65 + Math.sin(2 * Math.PI * 1.9 * t + 0.8) * 0.45);
+          // Pitch contour f0 around 135 Hz (natural vocal fundamental)
+          const f0 = 132 + 18 * Math.sin(2 * Math.PI * 1.2 * t);
+          // Vocal formants (F1 ~ 500 Hz, F2 ~ 1500 Hz, F3 ~ 2500 Hz)
+          const glottal =
+            Math.sin(2 * Math.PI * f0 * t) * 0.50 +
+            Math.sin(2 * Math.PI * (f0 * 2) * t) * 0.25 +
+            Math.sin(2 * Math.PI * 520 * t) * 0.22 +
+            Math.sin(2 * Math.PI * 1480 * t) * 0.12 +
+            Math.sin(2 * Math.PI * 2460 * t) * 0.06;
+          samples[i] = Math.max(-30000, Math.min(30000, Math.round(glottal * syllableEnv * 24000)));
+        }
+
+        document.getElementById('micTimerDisplay').textContent = '00:04.0';
+        document.getElementById('micStatusBadge').textContent = '✓ VOICE NOTE LOADED (4.0s)';
+        document.getElementById('micStatusBadge').className = 'px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/20 text-[#00FF88] border border-emerald-500/40';
+        drawWaveformCanvas('liveMicCanvas', samples);
+        applyRecordedVoiceSamplesAsCarrier(samples, sr, 'voice_message_note.wav');
+        showToast('Loaded 4.0s Voice Note carrier! Type your secret text below and click Encode.', 'success');
+      }
+
+      document.getElementById('startVoiceRecBtn').addEventListener('click', startLiveVoiceRecording);
+      document.getElementById('stopVoiceRecBtn').addEventListener('click', stopLiveVoiceRecording);
+      document.getElementById('simulateVoiceRecBtn').addEventListener('click', generateSimulatedVoiceNote);
+
+      // Live Mic Receiver on Reveal Page
+      let revMicStream = null;
+      let revAudioCtx = null;
+      let revScriptNode = null;
+      let revChunks = [];
+      let isRevListening = false;
+
+      document.getElementById('revStartMicBtn').addEventListener('click', async function () {
+        if (isRevListening) return;
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          showToast('Microphone unavailable in this context.', 'error');
+          return;
+        }
+        try {
+          revMicStream = await navigator.mediaDevices.getUserMedia({
+            audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false }
+          });
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          revAudioCtx = new AudioCtx({ sampleRate: 44100 });
+          const src = revAudioCtx.createMediaStreamSource(revMicStream);
+          revScriptNode = revAudioCtx.createScriptProcessor(4096, 1, 1);
+          revChunks = [];
+          revScriptNode.onaudioprocess = function (e) {
+            if (!isRevListening) return;
+            const inp = e.inputBuffer.getChannelData(0);
+            const ch = new Float32Array(inp.length);
+            ch.set(inp);
+            revChunks.push(ch);
+          };
+          src.connect(revScriptNode);
+          revScriptNode.connect(revAudioCtx.destination);
+          isRevListening = true;
+
+          document.getElementById('revMicStatusLabel').textContent = '🔴 Listening via mic... Play audio now, then click Stop & Decode.';
+          document.getElementById('revStartMicBtn').disabled = true;
+          const stopB = document.getElementById('revStopMicBtn');
+          stopB.disabled = false;
+          stopB.className = 'px-3 py-1.5 rounded-lg font-mono text-xs font-bold bg-[#00FF88] text-slate-950 cursor-pointer';
+          showToast('Listening via microphone...', 'success');
+        } catch {
+          showToast('Could not access microphone.', 'error');
+        }
+      });
+
+      document.getElementById('revStopMicBtn').addEventListener('click', function () {
+        if (!isRevListening) return;
+        isRevListening = false;
+        const sr = revAudioCtx ? revAudioCtx.sampleRate : 44100;
+        if (revScriptNode) { revScriptNode.disconnect(); revScriptNode = null; }
+        if (revMicStream) { revMicStream.getTracks().forEach(function (t) { t.stop(); }); revMicStream = null; }
+        if (revAudioCtx && revAudioCtx.state !== 'closed') { revAudioCtx.close().catch(function () {}); revAudioCtx = null; }
+
+        document.getElementById('revMicStatusLabel').textContent = 'Captured mic audio — scanning for hidden payload...';
+        document.getElementById('revStartMicBtn').disabled = false;
+        const stopB = document.getElementById('revStopMicBtn');
+        stopB.disabled = true;
+        stopB.className = 'px-3 py-1.5 rounded-lg font-mono text-xs font-bold bg-slate-800 text-slate-500 border border-white/10 cursor-not-allowed';
+
+        const total = revChunks.reduce(function (a, c) { return a + c.length; }, 0);
+        const pcm = new Int16Array(total);
+        let off = 0;
+        for (let i = 0; i < revChunks.length; i++) {
+          const ch = revChunks[i];
+          for (let k = 0; k < ch.length; k++) {
+            const s = Math.max(-1, Math.min(1, ch[k]));
+            pcm[off++] = s < 0 ? Math.round(s * 32768) : Math.round(s * 32767);
+          }
+        }
+        const wavBytes = encodeWav16Bit(pcm, sr);
+        const blobUrl = URL.createObjectURL(new Blob([wavBytes], { type: 'audio/wav' }));
+        inspectSamplesOnRevealPage({ samples: pcm, sampleRate: sr, blobUrl: blobUrl, name: 'mic_captured_audio.wav' }, '');
+      });
+
+      // Custom Audio File Upload on Hide Page
+      const audioHideDropzone = document.getElementById('audioHideDropzone');
+      const audioHideFileInput = document.getElementById('audioHideFileInput');
+      audioHideDropzone.addEventListener('click', function () { audioHideFileInput.click(); });
+      document.getElementById('changeCarrierBtn').addEventListener('click', function () { audioHideFileInput.click(); });
+
+      function handleHideAudioFile(file) {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = async function (ev) {
+          const arrayBuf = ev.target.result;
+          try {
+            const wav = parseWav16Bit(new Uint8Array(arrayBuf));
+            const wavBytes = encodeWav16Bit(wav.samples, wav.sampleRate);
+            const blobUrl = URL.createObjectURL(new Blob([wavBytes], { type: 'audio/wav' }));
+            state.carrier = { samples: wav.samples, sampleRate: wav.sampleRate, name: file.name, blobUrl };
+            document.getElementById('carrierNameLabel').textContent = file.name;
+            document.getElementById('carrierSpecsLabel').textContent = wav.sampleRate + ' Hz • 16-Bit PCM';
+            document.getElementById('carrierAudioPlayer').src = blobUrl;
+            drawWaveformCanvas('carrierWaveformCanvas', wav.samples);
+            updateCapacityTelemetry();
+            showToast('Loaded carrier WAV: ' + file.name, 'success');
+          } catch {
+            // Decode compressed MP3/OGG via Web Audio API AudioContext
+            try {
+              const AudioCtx = window.AudioContext || window.webkitAudioContext;
+              const actx = new AudioCtx();
+              const audioBuf = await actx.decodeAudioData(arrayBuf.slice(0));
+              const chData = audioBuf.getChannelData(0);
+              const samples = new Int16Array(chData.length);
+              for (let i = 0; i < chData.length; i++) {
+                samples[i] = Math.max(-32768, Math.min(32767, Math.round(chData[i] * 32767)));
+              }
+              const wavBytes = encodeWav16Bit(samples, audioBuf.sampleRate);
+              const blobUrl = URL.createObjectURL(new Blob([wavBytes], { type: 'audio/wav' }));
+              state.carrier = { samples, sampleRate: audioBuf.sampleRate, name: file.name.replace(/\.[^.]+$/, '') + '.wav', blobUrl };
+              document.getElementById('carrierNameLabel').textContent = state.carrier.name;
+              document.getElementById('carrierSpecsLabel').textContent = audioBuf.sampleRate + ' Hz • Converted to 16-Bit PCM';
+              document.getElementById('carrierAudioPlayer').src = blobUrl;
+              drawWaveformCanvas('carrierWaveformCanvas', samples);
+              updateCapacityTelemetry();
+              showToast('Converted audio to 16-Bit PCM carrier!', 'success');
+            } catch (err2) {
+              showToast('Could not decode audio file. Please upload a valid WAV or MP3.', 'error');
+            }
+          }
+        };
+        reader.readAsArrayBuffer(file);
+      }
+
+      audioHideFileInput.addEventListener('change', function () {
+        if (audioHideFileInput.files && audioHideFileInput.files[0]) handleHideAudioFile(audioHideFileInput.files[0]);
+      });
+      audioHideDropzone.addEventListener('dragover', function (e) { e.preventDefault(); });
+      audioHideDropzone.addEventListener('drop', function (e) {
+        e.preventDefault();
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) handleHideAudioFile(e.dataTransfer.files[0]);
+      });
+
+      // Payload Mode Switcher
+      const modeTextBtn = document.getElementById('modeTextBtn');
+      const modeFileBtn = document.getElementById('modeFileBtn');
+      modeTextBtn.addEventListener('click', function () {
+        state.payloadMode = 'text';
+        modeTextBtn.className = 'px-3 py-1 rounded-lg bg-cyan-500/20 text-[#00F0FF] font-semibold transition-all';
+        modeFileBtn.className = 'px-3 py-1 rounded-lg text-slate-400 hover:text-white transition-all';
+        document.getElementById('textPayloadBox').classList.remove('hidden');
+        document.getElementById('filePayloadBox').classList.add('hidden');
+        updateCapacityTelemetry();
+      });
+      modeFileBtn.addEventListener('click', function () {
+        state.payloadMode = 'file';
+        modeFileBtn.className = 'px-3 py-1 rounded-lg bg-cyan-500/20 text-[#00F0FF] font-semibold transition-all';
+        modeTextBtn.className = 'px-3 py-1 rounded-lg text-slate-400 hover:text-white transition-all';
+        document.getElementById('filePayloadBox').classList.remove('hidden');
+        document.getElementById('textPayloadBox').classList.add('hidden');
+        updateCapacityTelemetry();
+      });
+
+      const secretFileInput = document.getElementById('secretFileInput');
+      document.getElementById('secretFileDropzone').addEventListener('click', function () { secretFileInput.click(); });
+      secretFileInput.addEventListener('change', function () {
+        const f = secretFileInput.files && secretFileInput.files[0];
+        if (!f) return;
+        const r = new FileReader();
+        r.onload = function (ev) {
+          state.secretFile = {
+            name: f.name, size: f.size,
+            mimeType: f.type || 'application/octet-stream',
+            bytes: new Uint8Array(ev.target.result)
+          };
+          document.getElementById('secretFileCard').classList.remove('hidden');
+          document.getElementById('secretFileName').textContent = f.name;
+          document.getElementById('secretFileSize').textContent = '(' + formatBytes(f.size) + ')';
+          updateCapacityTelemetry();
+        };
+        r.readAsArrayBuffer(f);
+      });
+      document.getElementById('removeSecretFileBtn').addEventListener('click', function () {
+        state.secretFile = null;
+        secretFileInput.value = '';
+        document.getElementById('secretFileCard').classList.add('hidden');
+        updateCapacityTelemetry();
+      });
+
+      // Text & Sample Buttons
+      const secretTextInput = document.getElementById('secretTextInput');
+      secretTextInput.addEventListener('input', updateCapacityTelemetry);
+      document.getElementById('sampleMsgBtn').addEventListener('click', function () {
+        secretTextInput.value = 'AUDIOVAULT Transmission: Rendezvous at 22:00 UTC. Acoustic channel verified.';
+        updateCapacityTelemetry();
+      });
+      document.getElementById('unicodeMsgBtn').addEventListener('click', function () {
+        secretTextInput.value = '🔊🔐 AUDIOVAULT | 音響ステガノグラフィー | नमस्ते | ¡Hola Mundo!';
+        updateCapacityTelemetry();
+      });
+      document.getElementById('clearMsgBtn').addEventListener('click', function () {
+        secretTextInput.value = '';
+        updateCapacityTelemetry();
+      });
+
+      // Password & Engine Mode Controls
+      const encodePassInput = document.getElementById('encodePassInput');
+      const encodeConfirmPassInput = document.getElementById('encodeConfirmPassInput');
+      encodePassInput.addEventListener('input', updateCapacityTelemetry);
+      encodeConfirmPassInput.addEventListener('input', updateCapacityTelemetry);
+
+      document.getElementById('toggleEncodePassBtn').addEventListener('click', function () {
+        const isPass = encodePassInput.type === 'password';
+        encodePassInput.type = isPass ? 'text' : 'password';
+        encodeConfirmPassInput.type = isPass ? 'text' : 'password';
+        this.textContent = isPass ? 'HIDE' : 'SHOW';
+      });
+
+      function setEngineMode(mode) {
+        state.engineMode = mode;
+        const btns = {
+          'pcm': document.getElementById('enginePcmBtn'),
+          'fsk-audible': document.getElementById('engineFskAudibleBtn'),
+          'fsk-ultra': document.getElementById('engineFskUltraBtn')
+        };
+        Object.keys(btns).forEach(function (k) {
+          btns[k].className = k === mode
+            ? 'text-left p-3 rounded-xl border-2 border-[#00F0FF] bg-cyan-500/10 transition-all space-y-1'
+            : 'text-left p-3 rounded-xl border border-white/10 bg-[#060911] hover:border-violet-500/40 transition-all space-y-1';
+        });
+        updateCapacityTelemetry();
+      }
+
+      document.getElementById('enginePcmBtn').addEventListener('click', function () { setEngineMode('pcm'); });
+      document.getElementById('engineFskAudibleBtn').addEventListener('click', function () { setEngineMode('fsk-audible'); });
+      document.getElementById('engineFskUltraBtn').addEventListener('click', function () { setEngineMode('fsk-ultra'); });
+
+      function getRawPayloadBytes() {
+        if (state.payloadMode === 'file') {
+          return state.secretFile ? state.secretFile.bytes : new Uint8Array(0);
+        }
+        return new TextEncoder().encode(secretTextInput.value || '');
+      }
+
+      function updateCapacityTelemetry() {
+        const textVal = secretTextInput.value || '';
+        const textBytes = new TextEncoder().encode(textVal);
+        document.getElementById('charCountLabel').textContent = Array.from(textVal).length.toLocaleString();
+        document.getElementById('byteCountLabel').textContent = formatBytes(textBytes.length);
+
+        const pass = encodePassInput.value;
+        const encrypted = pass.length > 0;
+        const badge = document.getElementById('encStatusBadge');
+        if (encrypted) {
+          badge.textContent = 'AES-256-GCM LOCKED';
+          badge.className = 'px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-emerald-500/20 text-[#00FF88] border border-emerald-500/40';
+        } else {
+          badge.textContent = 'UNENCRYPTED';
+          badge.className = 'px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30';
+        }
+
+        const rawBytes = getRawPayloadBytes();
+        const headerOverhead = 10 + 1 + 1 + 1 + (encrypted ? 16 : 0) + 1 + (encrypted ? 12 : 0) + 2 + 48 + 4 + 4 + (encrypted ? 16 : 0);
+        const totalUsedBytes = rawBytes.length > 0 ? headerOverhead + rawBytes.length : 0;
+
+        const isPcm = state.engineMode === 'pcm';
+        const totalSamples = state.carrier ? state.carrier.samples.length : 220500;
+        const maxBytes = isPcm ? Math.floor(totalSamples / 8) : 4096;
+        const pct = maxBytes > 0 ? Math.min(100, Number(((totalUsedBytes / maxBytes) * 100).toFixed(2))) : 0;
+
+        document.getElementById('capPctBadge').textContent = pct.toFixed(2) + '%';
+        document.getElementById('capProgressBar').style.width = Math.min(100, Math.max(totalUsedBytes > 0 ? 2 : 0, pct)) + '%';
+        document.getElementById('capUsedLabel').textContent = 'Used: ' + formatBytes(totalUsedBytes);
+        document.getElementById('capMaxLabel').textContent = 'Max Capacity: ' + formatBytes(maxBytes);
+
+        document.getElementById('telEngineMode').textContent = state.engineMode === 'pcm'
+          ? '16-Bit PCM LSB'
+          : (state.engineMode === 'fsk-audible' ? 'Sonic FSK (1.8/3.0 kHz)' : 'Ultrasonic FSK (14.5/16.5 kHz)');
+        document.getElementById('telTotalSamples').textContent = totalSamples.toLocaleString() + ' samples';
+        document.getElementById('telDuration').textContent = (totalSamples / 44100).toFixed(2) + ' sec';
+        document.getElementById('telHeaderBytes').textContent = formatBytes(headerOverhead);
+        document.getElementById('telPacketBytes').textContent = formatBytes(totalUsedBytes);
+      }
+
+      function showHideError(msg) {
+        document.getElementById('hideErrorText').textContent = msg;
+        document.getElementById('hideErrorBanner').classList.remove('hidden');
+        showToast(msg, 'error');
+      }
+      document.getElementById('hideErrorCloseBtn').addEventListener('click', function () {
+        document.getElementById('hideErrorBanner').classList.add('hidden');
+      });
+
+      // Encode Secret Into Audio Handler
+      document.getElementById('encodeAudioBtn').addEventListener('click', async function () {
+        document.getElementById('hideErrorBanner').classList.add('hidden');
+        if (!state.carrier) loadBuiltInSynthCarrier('ambient');
+
+        const rawPayload = getRawPayloadBytes();
+        if (rawPayload.length === 0) {
+          showHideError('Please enter a secret message or attach a file before encoding.');
+          return;
+        }
+
+        const pass = encodePassInput.value;
+        const confirmPass = encodeConfirmPassInput.value;
+        const encrypted = pass.length > 0;
+        if (encrypted && pass !== confirmPass) {
+          showHideError('Passwords do not match. Please verify both password fields.');
+          return;
+        }
+
+        try {
+          let payloadBytes = rawPayload;
+          let salt = null, nonce = null;
+          if (encrypted) {
+            const enc = await encryptBytesAESGCM(rawPayload, pass);
+            payloadBytes = enc.ciphertext;
+            salt = enc.salt;
+            nonce = enc.nonce;
+          }
+
+          const metadata = {
+            mode: state.payloadMode,
+            filename: state.payloadMode === 'file' && state.secretFile ? state.secretFile.name : 'audiovault-secret.txt',
+            mimeType: state.payloadMode === 'file' && state.secretFile ? state.secretFile.mimeType : 'text/plain;charset=utf-8',
+            timestamp: Date.now()
+          };
+
+          const serialized = serializeAudioPacket({
+            payloadBytes, encrypted, isFile: state.payloadMode === 'file', salt, nonce, metadata
+          });
+
+          let encodedSamples;
+          let sampleRate = state.carrier.sampleRate;
+          let metrics;
+
+          if (state.engineMode === 'pcm') {
+            encodedSamples = embedPcmLsb(state.carrier.samples, serialized.packet);
+            metrics = computeAudioMetrics(state.carrier.samples, encodedSamples);
+          } else {
+            const isUltra = state.engineMode === 'fsk-ultra';
+            encodedSamples = synthesizeFskSamples(serialized.packet, isUltra);
+            sampleRate = FSK_SAMPLE_RATE;
+            metrics = {
+              snr: 99.99,
+              modifiedCount: encodedSamples.length,
+              maxDelta: 24000,
+              totalSamples: encodedSamples.length
+            };
+          }
+
+          const wavBytes = encodeWav16Bit(encodedSamples, sampleRate);
+          if (state.encodedResult && state.encodedResult.blobUrl) URL.revokeObjectURL(state.encodedResult.blobUrl);
+          const blobUrl = URL.createObjectURL(new Blob([wavBytes], { type: 'audio/wav' }));
+
+          state.encodedResult = {
+            samples: encodedSamples,
+            sampleRate: sampleRate,
+            wavBytes: wavBytes,
+            blobUrl: blobUrl,
+            crcHex: '0x' + serialized.crc.toString(16).toUpperCase().padStart(8, '0'),
+            encrypted: encrypted,
+            engineMode: state.engineMode
+          };
+
+          document.getElementById('encodedAudioPlayer').src = blobUrl;
+          drawWaveformCanvas(
+            'encodedDiffCanvas',
+            encodedSamples,
+            state.engineMode === 'pcm' ? state.carrier.samples : null
+          );
+
+          document.getElementById('resSnrText').textContent = state.engineMode === 'pcm' ? (metrics.snr + ' dB (Imperceptible)') : 'Synthesized FSK Carrier';
+          document.getElementById('resMaxDeltaText').textContent = state.engineMode === 'pcm' ? '±1 / 65,536' : 'FSK Modulated';
+          document.getElementById('resModSamplesText').textContent = metrics.modifiedCount.toLocaleString() + ' samples';
+          document.getElementById('resModeText').textContent = state.engineMode === 'pcm' ? '16-Bit PCM LSB' : 'Goertzel Sonic FSK';
+          document.getElementById('resCrcHexText').textContent = state.encodedResult.crcHex;
+
+          const resPanel = document.getElementById('encodeResultPanel');
+          resPanel.classList.remove('hidden');
+          resPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          showToast('Secret payload encoded into lossless .WAV!', 'success');
+        } catch (err) {
+          showHideError(err.message || 'Encoding failed.');
+        }
+      });
+
+      document.getElementById('downloadEncodedWavBtn').addEventListener('click', function () {
+        if (!state.encodedResult) return;
+        const a = document.createElement('a');
+        a.href = state.encodedResult.blobUrl;
+        a.download = state.encodedResult.engineMode === 'pcm' ? 'audiovault-stego.wav' : 'audiovault-sonic-fsk.wav';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        showToast('Downloaded ' + a.download, 'success');
+      });
+
+      document.getElementById('sendAudioToRevealBtn').addEventListener('click', function () {
+        if (!state.encodedResult) return;
+        switchPage('reveal');
+        inspectSamplesOnRevealPage({
+          samples: state.encodedResult.samples,
+          sampleRate: state.encodedResult.sampleRate,
+          blobUrl: state.encodedResult.blobUrl,
+          name: state.encodedResult.engineMode === 'pcm' ? 'audiovault-stego.wav' : 'audiovault-sonic-fsk.wav'
+        }, '');
+      });
+
+      // =====================================================================
+      // 7. REVEAL MESSAGE FROM AUDIO LOGIC
+      // =====================================================================
+      function displayRevealedOutput(plainBytes, header) {
+        document.getElementById('revEmptyCard').classList.add('hidden');
+        document.getElementById('revErrorCard').classList.add('hidden');
+        document.getElementById('revPasswordCard').classList.add('hidden');
+        document.getElementById('revSuccessCard').classList.remove('hidden');
+
+        const meta = header.metadata || {};
+        const text = header.isFile
+          ? '[Binary File Extracted]\nFilename: ' + (meta.filename || 'secret.bin') + '\nSize: ' + formatBytes(plainBytes.length)
+          : new TextDecoder('utf-8').decode(plainBytes);
+
+        state.revealedData = {
+          text: text,
+          bytes: plainBytes,
+          filename: meta.filename || 'audiovault-revealed.txt',
+          mimeType: meta.mimeType || 'text/plain;charset=utf-8'
+        };
+
+        document.getElementById('revOutputText').textContent = text;
+      }
+
+      function inspectSamplesOnRevealPage(audioObj, prefillPassword) {
+        state.detectedPacket = null;
+        state.revealedData = null;
+
+        document.getElementById('revealAudioPreviewCard').classList.remove('hidden');
+        document.getElementById('revAudioFileName').textContent = audioObj.name;
+        document.getElementById('revAudioSpecs').textContent = audioObj.sampleRate + ' Hz • ' + audioObj.samples.length.toLocaleString() + ' samples';
+        document.getElementById('revealAudioPlayer').src = audioObj.blobUrl;
+        drawWaveformCanvas('revealWaveformCanvas', audioObj.samples);
+
+        document.getElementById('revEmptyCard').classList.add('hidden');
+        document.getElementById('revErrorCard').classList.add('hidden');
+        document.getElementById('revPasswordCard').classList.add('hidden');
+        document.getElementById('revSuccessCard').classList.add('hidden');
+        document.getElementById('revWrongPassBanner').classList.add('hidden');
+
+        try {
+          const parsed = parseFromAudioSamples(audioObj.samples);
+          state.detectedPacket = parsed;
+          const h = parsed.header;
+
+          document.getElementById('revStatusBadge').textContent = 'PAYLOAD VERIFIED ✓';
+          document.getElementById('revStatusBadge').className = 'px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-[#00FF88] border border-emerald-500/40';
+          document.getElementById('revDetEngine').textContent = h.engineLabel;
+          document.getElementById('revDetEngine').className = 'text-[#00F0FF] font-semibold';
+          document.getElementById('revDetMagic').textContent = h.magic + ' ✓';
+          document.getElementById('revDetMagic').className = 'text-[#00FF88] font-bold';
+          document.getElementById('revDetEnc').textContent = h.encrypted ? 'AES-256-GCM Locked' : 'Unencrypted';
+          document.getElementById('revDetEnc').className = h.encrypted ? 'text-amber-300 font-bold' : 'text-emerald-300';
+          document.getElementById('revDetSize').textContent = formatBytes(h.payloadLength);
+          document.getElementById('revDetSize').className = 'text-white';
+          document.getElementById('revDetCrc').textContent = '0x' + h.crc32.toString(16).toUpperCase().padStart(8, '0') + ' ✓';
+          document.getElementById('revDetCrc').className = 'text-[#00FF88]';
+
+          if (h.encrypted) {
+            document.getElementById('revPasswordCard').classList.remove('hidden');
+            document.getElementById('revPassInput').value = prefillPassword || '';
+            document.getElementById('revDemoHint').classList.toggle('hidden', !prefillPassword);
+            showToast('Encrypted audio payload detected! Enter password to unlock.', 'warn');
+          } else {
+            displayRevealedOutput(parsed.payloadBytes, h);
+            showToast('Hidden message extracted from audio!', 'success');
+          }
+        } catch (err) {
+          document.getElementById('revStatusBadge').textContent = 'NO PAYLOAD';
+          document.getElementById('revStatusBadge').className = 'px-2.5 py-0.5 rounded-full text-[10px] bg-rose-500/20 text-rose-300';
+          document.getElementById('revErrorCard').classList.remove('hidden');
+          document.getElementById('revErrorTitle').textContent = err.message || 'No hidden AUDIOVAULT payload detected.';
+          document.getElementById('revErrorDetail').textContent = 'Make sure you uploaded an uncompressed 16-bit PCM .WAV generated by AUDIOVAULT.';
+        }
+      }
+
+      const audioRevealDropzone = document.getElementById('audioRevealDropzone');
+      const audioRevealFileInput = document.getElementById('audioRevealFileInput');
+      audioRevealDropzone.addEventListener('click', function () { audioRevealFileInput.click(); });
+
+      function handleRevealWavFile(file) {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (ev) {
+          try {
+            const wavBytes = new Uint8Array(ev.target.result);
+            const parsedWav = parseWav16Bit(wavBytes);
+            const blobUrl = URL.createObjectURL(new Blob([wavBytes], { type: 'audio/wav' }));
+            inspectSamplesOnRevealPage({
+              samples: parsedWav.samples,
+              sampleRate: parsedWav.sampleRate,
+              blobUrl: blobUrl,
+              name: file.name
+            }, '');
+          } catch (e) {
+            showToast(e.message || 'Invalid WAV file.', 'error');
+          }
+        };
+        reader.readAsArrayBuffer(file);
+      }
+
+      audioRevealFileInput.addEventListener('change', function () {
+        if (audioRevealFileInput.files && audioRevealFileInput.files[0]) handleRevealWavFile(audioRevealFileInput.files[0]);
+      });
+      audioRevealDropzone.addEventListener('dragover', function (e) { e.preventDefault(); });
+      audioRevealDropzone.addEventListener('drop', function (e) {
+        e.preventDefault();
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) handleRevealWavFile(e.dataTransfer.files[0]);
+      });
+
+      async function triggerAudioDecryption() {
+        if (!state.detectedPacket) return;
+        const pass = document.getElementById('revPassInput').value;
+        document.getElementById('revWrongPassBanner').classList.add('hidden');
+        try {
+          const h = state.detectedPacket.header;
+          const plain = await decryptBytesAESGCM(state.detectedPacket.payloadBytes, pass, h.salt, h.nonce);
+          displayRevealedOutput(plain, h);
+          showToast('AES-256-GCM decryption succeeded!', 'success');
+        } catch {
+          document.getElementById('revWrongPassBanner').classList.remove('hidden');
+          showToast('Incorrect password.', 'error');
+        }
+      }
+
+      document.getElementById('revDecryptBtn').addEventListener('click', triggerAudioDecryption);
+      document.getElementById('revPassInput').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); triggerAudioDecryption(); }
+      });
+
+      document.getElementById('copyRevealedBtn').addEventListener('click', function () {
+        if (!state.revealedData) return;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(state.revealedData.text);
+        }
+        showToast('Copied revealed text to clipboard!', 'success');
+      });
+
+      document.getElementById('downloadRevealedPayloadBtn').addEventListener('click', function () {
+        if (!state.revealedData) return;
+        const blob = new Blob([state.revealedData.bytes], { type: state.revealedData.mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = state.revealedData.filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+
+      // Built-In Demo Loaders
+      async function runBuiltInDemo(mode) {
+        switchPage('reveal');
+        if (mode === 'fsk') {
+          const msg = '🔊 SONIC FSK MODEM TRANSMISSION RECEIVED!\n\nModulation: Binary Frequency-Shift Keying (1800 Hz / 3000 Hz)\nDemodulator: Matched Goertzel Digital Filter\nIntegrity: IEEE 802.3 CRC32 Verified';
+          const ser = serializeAudioPacket({
+            payloadBytes: new TextEncoder().encode(msg),
+            encrypted: false,
+            isFile: false,
+            metadata: { mode: 'text', timestamp: Date.now() }
+          });
+          const fskSamples = synthesizeFskSamples(ser.packet, false);
+          const wavBytes = encodeWav16Bit(fskSamples, 44100);
+          const blobUrl = URL.createObjectURL(new Blob([wavBytes], { type: 'audio/wav' }));
+          inspectSamplesOnRevealPage({
+            samples: fskSamples, sampleRate: 44100, blobUrl, name: 'demo-sonic-fsk-modem.wav'
+          }, '');
+          return;
+        }
+
+        const baseSamples = generateSynthCarrierSamples('ambient', 3.5, 44100);
+        const secretText = '🔐 CLASSIFIED AUDIOVAULT PAYLOAD\n\nCarrier: 44.1 kHz 16-Bit PCM Ambient Synth\nCipher: AES-256-GCM + PBKDF2-SHA256 (100,000 iterations)\nSNR: >88 dB Imperceptible Sample LSB Embedding';
+        const enc = await encryptBytesAESGCM(new TextEncoder().encode(secretText), 'Vault2026!');
+        const ser = serializeAudioPacket({
+          payloadBytes: enc.ciphertext,
+          encrypted: true,
+          isFile: false,
+          salt: enc.salt,
+          nonce: enc.nonce,
+          metadata: { mode: 'text', timestamp: Date.now() }
+        });
+        const stegoSamples = embedPcmLsb(baseSamples, ser.packet);
+        const wavBytes = encodeWav16Bit(stegoSamples, 44100);
+        const blobUrl = URL.createObjectURL(new Blob([wavBytes], { type: 'audio/wav' }));
+        inspectSamplesOnRevealPage({
+          samples: stegoSamples, sampleRate: 44100, blobUrl, name: 'demo-encrypted-pcm.wav'
+        }, 'Vault2026!');
+      }
+
+      document.getElementById('headerInstantDemoBtn').addEventListener('click', function () { runBuiltInDemo('pcm'); });
+      document.getElementById('revLoadPcmDemoBtn').addEventListener('click', function () { runBuiltInDemo('pcm'); });
+      document.getElementById('revLoadFskDemoBtn').addEventListener('click', function () { runBuiltInDemo('fsk'); });
+      document.getElementById('heroSonicDemoBtn').addEventListener('click', function () { runBuiltInDemo('fsk'); });
+
+      document.getElementById('headerPurgeBtn').addEventListener('click', function () {
+        secretTextInput.value = '';
+        encodePassInput.value = '';
+        encodeConfirmPassInput.value = '';
+        document.getElementById('encodeResultPanel').classList.add('hidden');
+        document.getElementById('revEmptyCard').classList.remove('hidden');
+        document.getElementById('revSuccessCard').classList.add('hidden');
+        document.getElementById('revPasswordCard').classList.add('hidden');
+        updateCapacityTelemetry();
+        showToast('Session memory purged.', 'success');
+      });
+
+      // =====================================================================
+      // 8. AUTOMATED 8-TEST VERIFICATION SUITE
+      // =====================================================================
+      async function runAudioVerificationSuite() {
+        const grid = document.getElementById('testGrid');
+        const badge = document.getElementById('testSuiteBadge');
+        if (!grid) return;
+        grid.innerHTML = '';
+
+        const testCarrier = generateSynthCarrierSamples('ambient', 1.2, 44100);
+        const results = [];
+
+        // TEST 1: 16-Bit PCM LSB Plaintext Roundtrip
+        try {
+          const msg1 = 'Hello AudioVault 16-Bit PCM!';
+          const ser1 = serializeAudioPacket({ payloadBytes: new TextEncoder().encode(msg1), encrypted: false, isFile: false });
+          const enc1 = embedPcmLsb(testCarrier, ser1.packet);
+          const dec1 = parseFromAudioSamples(enc1);
+          const out1 = new TextDecoder().decode(dec1.payloadBytes);
+          results.push({ id: 'TEST 1', name: '16-Bit PCM LSB Roundtrip', passed: out1 === msg1, detail: 'Exact bit-identical recovery' });
+        } catch (e) {
+          results.push({ id: 'TEST 1', name: '16-Bit PCM LSB Roundtrip', passed: false, detail: e.message });
+        }
+
+        // TEST 2: AES-256-GCM Encrypted Audio Roundtrip
+        try {
+          const msg2 = 'Top Secret Acoustic Coordinates 2026';
+          const encB = await encryptBytesAESGCM(new TextEncoder().encode(msg2), 'SonicKey#99');
+          const ser2 = serializeAudioPacket({ payloadBytes: encB.ciphertext, encrypted: true, isFile: false, salt: encB.salt, nonce: encB.nonce });
+          const enc2 = embedPcmLsb(testCarrier, ser2.packet);
+          const dec2 = parseFromAudioSamples(enc2);
+          const plain2 = await decryptBytesAESGCM(dec2.payloadBytes, 'SonicKey#99', dec2.header.salt, dec2.header.nonce);
+          const out2 = new TextDecoder().decode(plain2);
+          results.push({ id: 'TEST 2', name: 'AES-256-GCM Audio Encryption', passed: out2 === msg2, detail: 'PBKDF2 100k + GCM tag verified' });
+        } catch (e) {
+          results.push({ id: 'TEST 2', name: 'AES-256-GCM Audio Encryption', passed: false, detail: e.message });
+        }
+
+        // TEST 3: Wrong Password Rejection
+        try {
+          const encB3 = await encryptBytesAESGCM(new TextEncoder().encode('Locked Audio'), 'RightPass');
+          const ser3 = serializeAudioPacket({ payloadBytes: encB3.ciphertext, encrypted: true, isFile: false, salt: encB3.salt, nonce: encB3.nonce });
+          const enc3 = embedPcmLsb(testCarrier, ser3.packet);
+          const dec3 = parseFromAudioSamples(enc3);
+          let rejected = false;
+          try {
+            await decryptBytesAESGCM(dec3.payloadBytes, 'WrongPass', dec3.header.salt, dec3.header.nonce);
+          } catch { rejected = true; }
+          results.push({ id: 'TEST 3', name: 'Wrong Password Auth Guard', passed: rejected, detail: 'GCM rejected wrong password' });
+        } catch (e) {
+          results.push({ id: 'TEST 3', name: 'Wrong Password Auth Guard', passed: false, detail: e.message });
+        }
+
+        // TEST 4: Sonic FSK Audible Modem Demodulation (Goertzel Filter)
+        try {
+          const msg4 = 'FSK Data Over Sound Test!';
+          const ser4 = serializeAudioPacket({ payloadBytes: new TextEncoder().encode(msg4), encrypted: false, isFile: false });
+          const fsk4 = synthesizeFskSamples(ser4.packet, false);
+          const dec4 = parseFromAudioSamples(fsk4);
+          const out4 = new TextDecoder().decode(dec4.payloadBytes);
+          results.push({ id: 'TEST 4', name: 'Sonic FSK Modem Goertzel Decode', passed: out4 === msg4, detail: '1.8/3.0 kHz FSK demodulated' });
+        } catch (e) {
+          results.push({ id: 'TEST 4', name: 'Sonic FSK Modem Goertzel Decode', passed: false, detail: e.message });
+        }
+
+        // TEST 5: Ultrasonic FSK Stealth Demodulation (14.5/16.5 kHz)
+        try {
+          const msg5 = 'Ultrasonic Covert Burst';
+          const ser5 = serializeAudioPacket({ payloadBytes: new TextEncoder().encode(msg5), encrypted: false, isFile: false });
+          const fsk5 = synthesizeFskSamples(ser5.packet, true);
+          const dec5 = parseFromAudioSamples(fsk5);
+          const out5 = new TextDecoder().decode(dec5.payloadBytes);
+          results.push({ id: 'TEST 5', name: 'Ultrasonic FSK Stealth Decode', passed: out5 === msg5, detail: '14.5/16.5 kHz FSK demodulated' });
+        } catch (e) {
+          results.push({ id: 'TEST 5', name: 'Ultrasonic FSK Stealth Decode', passed: false, detail: e.message });
+        }
+
+        // TEST 6: RIFF/WAVE 16-Bit Binary Container Serialization & Parsing
+        try {
+          const msg6 = 'RIFF WAVE Binary Container Integrity';
+          const ser6 = serializeAudioPacket({ payloadBytes: new TextEncoder().encode(msg6), encrypted: false, isFile: false });
+          const enc6 = embedPcmLsb(testCarrier, ser6.packet);
+          const wavBytes6 = encodeWav16Bit(enc6, 44100);
+          const parsedWav6 = parseWav16Bit(wavBytes6);
+          const dec6 = parseFromAudioSamples(parsedWav6.samples);
+          const out6 = new TextDecoder().decode(dec6.payloadBytes);
+          results.push({ id: 'TEST 6', name: 'RIFF/WAVE Container Roundtrip', passed: out6 === msg6, detail: '44-byte header + PCM intact' });
+        } catch (e) {
+          results.push({ id: 'TEST 6', name: 'RIFF/WAVE Container Roundtrip', passed: false, detail: e.message });
+        }
+
+        // TEST 7: Acoustic SNR > 80 dB Imperceptibility Verification
+        try {
+          const ser7 = serializeAudioPacket({ payloadBytes: new TextEncoder().encode('SNR Fidelity Test'), encrypted: false, isFile: false });
+          const enc7 = embedPcmLsb(testCarrier, ser7.packet);
+          const m7 = computeAudioMetrics(testCarrier, enc7);
+          results.push({ id: 'TEST 7', name: 'Acoustic SNR > 80 dB Fidelity', passed: m7.snr > 80 && m7.maxDelta <= 1, detail: 'Measured SNR: ' + m7.snr + ' dB (Δ≤1)' });
+        } catch (e) {
+          results.push({ id: 'TEST 7', name: 'Acoustic SNR > 80 dB Fidelity', passed: false, detail: e.message });
+        }
+
+        // TEST 8: CRC32 Sample Tampering Detection
+        try {
+          const ser8 = serializeAudioPacket({ payloadBytes: new TextEncoder().encode('Tamper Check'), encrypted: false, isFile: false });
+          const tampered = embedPcmLsb(testCarrier, ser8.packet);
+          for (let k = ser8.headerLen * 8 + 4; k < ser8.headerLen * 8 + 28; k++) tampered[k] ^= 1;
+          let caught = false;
+          try { parseFromAudioSamples(tampered); } catch (err8) { caught = err8.message.indexOf('CRC32') !== -1; }
+          results.push({ id: 'TEST 8', name: 'CRC32 Sample Tamper Guard', passed: caught, detail: 'Detected flipped sample LSBs' });
+        } catch (e) {
+          results.push({ id: 'TEST 8', name: 'CRC32 Sample Tamper Guard', passed: false, detail: e.message });
+        }
+
+        const passedCount = results.filter(r => r.passed).length;
+        badge.textContent = passedCount + ' / ' + results.length + ' TESTS PASSED ✓';
+
+        results.forEach(function (r) {
+          const card = document.createElement('div');
+          card.className = 'p-3.5 rounded-xl bg-[#060911] border ' + (r.passed ? 'border-emerald-500/30' : 'border-rose-500/40') + ' space-y-1';
+          card.innerHTML =
+            '<div class="flex items-center justify-between">' +
+              '<span class="font-bold text-white">' + r.id + '</span>' +
+              '<span class="px-2 py-0.5 rounded text-[10px] font-bold ' + (r.passed ? 'bg-emerald-500/20 text-[#00FF88]' : 'bg-rose-500/20 text-rose-300') + '">' + (r.passed ? 'PASS ✓' : 'FAIL ✗') + '</span>' +
+            '</div>' +
+            '<div class="text-slate-200 font-semibold">' + r.name + '</div>' +
+            '<div class="text-[11px] text-slate-400">' + r.detail + '</div>';
+          grid.appendChild(card);
+        });
+      }
+
+      document.getElementById('reRunTestsBtn').addEventListener('click', function () {
+        runAudioVerificationSuite().then(function () {
+          showToast('All 8 acoustic & cryptographic tests executed!', 'success');
+        });
+      });
+
+      // Ambient Background Wave Animation
+      function initBgWave() {
+        const canvas = document.getElementById('bgWaveCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        window.addEventListener('resize', function () {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        });
+        let phase = 0;
+        function draw() {
+          ctx.clearRect(0, 0, width, height);
+          ctx.strokeStyle = 'rgba(0, 240, 255, 0.14)';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          for (let x = 0; x < width; x += 8) {
+            const y = height * 0.5 + Math.sin(x * 0.006 + phase) * 38 + Math.cos(x * 0.015 - phase * 1.4) * 18;
+            if (x === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+          phase += 0.02;
+          requestAnimationFrame(draw);
+        }
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('load', function () {
+        initBgWave();
+        loadBuiltInSynthCarrier('ambient');
+        secretTextInput.value = 'AUDIOVAULT Secret Transmission: Coordinates 37.7749° N, 122.4194° W.';
+        updateCapacityTelemetry();
+        runAudioVerificationSuite();
+      });
+    })();
+  </script>
+</body>
+</html>

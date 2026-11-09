@@ -1,0 +1,45 @@
+# AUDIOVAULT
+
+> Sonic Steganography (16-Bit PCM LSB), Live Voice Recorder & FSK Acoustic Cryptography Platform.
+> 100% Client-Side. Zero-Knowledge. Open-Source.
+
+AUDIOVAULT is a web-based privacy and acoustic communication tool that hides encrypted secret text and files inside audio waveforms and transmits data through sound over the air using Frequency-Shift Keying (FSK).
+
+## Core Capabilities & Features
+
+- **16-Bit PCM LSB Steganography**: Embeds encrypted binary packets into the Least Significant Bits of 16-bit uncompressed PCM WAV audio. SNR exceeds 94 dB, ensuring total acoustic imperceptibility.
+- **Sonic FSK Acoustic Modem**: Synthesizes phase-continuous FSK audio tones for data-over-sound acoustic transmission (Audible 1.8/3.0 kHz or Ultrasonic Stealth 14.5/16.5 kHz) and demodulates them via matched Goertzel digital filtering.
+- **Live Voice Studio**: Records real-time vocal audio at 44.1 kHz 16-bit PCM directly from the user's microphone with live oscilloscope and volume visualizers.
+- **Authenticated Encryption**: Employs AES-256-GCM encryption with 12-byte random nonces and 128-bit authentication tags, keyed via PBKDF2-HMAC-SHA256 (100,000 iterations, 16-byte random salt).
+- **IEEE 802.3 CRC32 Integrity**: Validates sample integrity and automatically catches tampered bits.
+- **Zero-Knowledge Privacy**: All signal processing and cryptographic operations run strictly within the client browser. No audio, payloads, or keys ever touch external servers.
+
+## Wire Protocol Specification
+
+Binary packets embedded in audio samples adhere to the following binary header structure:
+- **Magic Bytes** (4 bytes): `0x53, 0x54, 0x47, 0x31` ("STG1")
+- **Flags** (1 byte): Bit 0: Encrypted (AES-256-GCM), Bit 1: Binary File Payload (vs Text)
+- **Salt Length & Salt** (1 + 16 bytes): Random PBKDF2 salt (if encrypted)
+- **Nonce Length & Nonce** (1 + 12 bytes): Random AES-GCM IV (if encrypted)
+- **Metadata Length & Metadata** (2 + N bytes): UTF-8 JSON metadata (filename, mimeType)
+- **Payload Length** (4 bytes, Big-Endian): Length of payload/ciphertext
+- **Payload Bytes** (N bytes): Ciphertext or plaintext payload
+- **CRC32 Checksum** (4 bytes, Big-Endian): IEEE 802.3 checksum over entire packet
+
+## Frequently Asked Questions
+
+Q: Can human ears detect the embedded message in 16-bit PCM LSB?
+A: No. Altering the least significant bit in a 16-bit sample changes the amplitude by only 1 part in 65,536, yielding a Signal-to-Noise Ratio (SNR) > 94 dB. This is well below the human hearing threshold and ambient room noise floor.
+
+Q: Will steganography survive MP3 compression or WhatsApp voice notes?
+A: No. Lossy codecs (MP3, AAC, Opus) discard imperceptible psychoacoustic data, destroying LSB modifications. Lossless transmission (.wav format) is required for LSB. However, Sonic FSK tones transmitted through the air do survive acoustic playback and microphone reception.
+
+Q: Is AUDIOVAULT zero-knowledge?
+A: Yes. 100% of the cryptographic key derivation and signal processing executes locally in JavaScript/Web Audio API.
+
+## Repository & Links
+
+- Website: https://audiovault.app/
+- Source Code: https://github.com/TejaPriyan/AudioVault
+- License: MIT License
+
