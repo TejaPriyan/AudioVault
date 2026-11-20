@@ -2,7 +2,7 @@
   "name": "AUDIOVAULT — Sonic Steganography & Acoustic Cryptography",
   "short_name": "AUDIOVAULT",
   "description": "Zero-knowledge client-side sonic steganography, live voice recording studio, and FSK data-over-sound acoustic modem.",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#05060B",
   "theme_color": "#00F0FF",
